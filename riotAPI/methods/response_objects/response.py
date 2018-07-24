@@ -15,7 +15,6 @@ class Response(object):
         :param kwargs: dicionario que representa as variaveis presentes nos objetos dessa classe
         """
 
-        self.params = kwargs
         for key, value in zip(kwargs.keys(), kwargs.values()):
             self.__setattr__(key, value)
 
@@ -38,18 +37,19 @@ class Response(object):
         if (hasattribute(self, item)):
             return self.__getattribute__(item)
         else:
-            dict_vars = self.to_dict()
+            dict_vars = self.dict
             if (item in dict_vars):
                 return dict_vars[item]
             else:
                 raise AttributeError("{0} object has no attribute {1}".format(self.__class__.__name__,item))
 
-    def to_dict(self):
+    @property
+    def dict(self):
         dict = {}
         for key, obj in vars(self).items():
             if (isinstance(obj, Response)):
-                dict = {**dict, **obj.to_dict()}
-            else:
+                dict = {**dict, **obj.dict}
+            elif(obj!=None):
                 dict[key] = obj
 
         return dict
@@ -82,8 +82,6 @@ class Response_list(list):
         """
 
         list.__init__(self)
-        self.params = kwargs
-        self.__params = list_kwargs
 
         for key, value in zip(kwargs.keys(), kwargs.values()):
             self.__setattr__(key, value)
@@ -111,9 +109,10 @@ class Response_list(list):
             for obj in self:
                 attribute_list.append(obj[item])
             return np.array(attribute_list)
-
-    def to_dict(self):
-        dict_array = [obj.to_dict() for obj in self]
+    
+    @property
+    def dict(self):
+        dict_array = [obj.dict for obj in self]
         dict_array = np.array(dict_array).ravel()
         dict_array = [{**dict, **vars(self)} for dict in dict_array]
 
