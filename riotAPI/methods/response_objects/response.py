@@ -27,7 +27,7 @@ class Response(object):
         :return: String
         """
 
-        return str(self.params)
+        return str(self.dict)
 
     def __getitem__(self, item):
         if (isinstance(item, str)):
