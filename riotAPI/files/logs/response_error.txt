@@ -1,0 +1,42 @@
+[Thu Jul 12 14:00:31 2018]
+Codigo do erro:403
+Data da requisi��o:
+url_requisitada:https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/kami
+cabecalho_requisitado:{'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7', 'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8', 'X-Riot-Token': 'RGAPI-34f96860-ea6e-4f5c-b77c-30a8ea2456ce', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36', 'Origin': 'https://developer.riotgames.com'}                 
+parametros_requisitados:{}
+cabecalho_resposta:{'Date': 'Thu, 12 Jul 2018  17:00:30 GMT', 'Content-Type': 'application/json;charset=utf-8', 'Connection': 'keep-alive', 'transfer-encoding': 'chunked'}
+[Sun Jul 15 09:06:26 2018]
+Codigo do erro:403
+Data da requisi��o:
+url_requisitada:https://br1.api.riotgames.com/lol/match/v3/matches/1407771192
+cabecalho_requisitado:{'Origin': 'https://developer.riotgames.com', 'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36', 'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7', 'X-Riot-Token': 'RGAPI-22b6c519-47e0-4fcc-9a5f-a016a32b2327'}                 
+parametros_requisitados:{}
+cabecalho_resposta:{'Content-Length': '52', 'Date': 'Sun, 15 Jul 2018  12:06:27 GMT', 'Content-Type': 'application/json;charset=utf-8', 'Connection': 'keep-alive'}
+[Mon Jul 23 01:15:13 2018]
+Codigo do erro:404
+Data da requisição:
+url_requisitada:https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/dsdskami
+cabecalho_requisitado:{'Origin': 'https://developer.riotgames.com', 'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8', 'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36', 'X-Riot-Token': 'RGAPI-78a7c11e-7b39-40a1-a25d-015ff837b556'}                 
+parametros_requisitados:{}
+cabecalho_resposta:{'Content-Encoding': 'gzip', 'Content-Type': 'application/json;charset=utf-8', 'Date': 'Mon, 23 Jul 2018  04:15:13 GMT', 'Vary': 'Accept-Encoding', 'X-App-Rate-Limit': '20:1,100:120', 'X-App-Rate-Limit-Count': '1:1,2:120', 'X-Method-Rate-Limit': '1300:60', 'X-Method-Rate-Limit-Count': '2:60', 'Content-Length': '71', 'Connection': 'keep-alive'}
+[Mon Jul 23 02:46:28 2018]
+Codigo do erro:403
+Data da requisição:
+url_requisitada:https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/kami
+cabecalho_requisitado:{'Origin': 'https://developer.riotgames.com', 'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8', 'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36', 'X-Riot-Token': 'R'}                 
+parametros_requisitados:{}
+cabecalho_resposta:{'Content-Type': 'application/json;charset=utf-8', 'Date': 'Mon, 23 Jul 2018  05:46:28 GMT', 'transfer-encoding': 'chunked', 'Connection': 'keep-alive'}
+[Tue Jul 24 08:43:32 2018]
+Codigo do erro:403
+Data da requisição:
+url_requisitada:https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/kami
+cabecalho_requisitado:{'Origin': 'https://developer.riotgames.com', 'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8', 'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36', 'X-Riot-Token': 'RGAPI-78a7c11e-7b39-40a1-a25d-015ff837b556'}                 
+parametros_requisitados:{}
+cabecalho_resposta:{'Content-Type': 'application/json;charset=utf-8', 'Date': 'Tue, 24 Jul 2018  11:43:32 GMT', 'Content-Length': '52', 'Connection': 'keep-alive'}
+[Tue Jul 24 09:00:51 2018]
+Codigo do erro:403
+Data da requisição:
+url_requisitada:https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/kami
+cabecalho_requisitado:{'Origin': 'https://developer.riotgames.com', 'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8', 'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36', 'X-Riot-Token': 'RGAPI-942588c2-ee3d-494d-a408-0597879f7cdc'}                 
+parametros_requisitados:{}
+cabecalho_resposta:{'Content-Type': 'application/json;charset=utf-8', 'Date': 'Tue, 24 Jul 2018  12:00:50 GMT', 'Content-Length': '52', 'Connection': 'keep-alive'}
