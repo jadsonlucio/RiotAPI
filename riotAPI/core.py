@@ -102,7 +102,7 @@ class RiotAPI():
 
     # ddragon methods
 
-    @decorators.ddragon_method(language=None)
+    @decorators.ddragon_method(language="pt")
     def get_champions(self, patch_version=None, language=None):
         """
 
