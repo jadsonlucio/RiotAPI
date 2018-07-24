@@ -1,0 +1,166 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>riotAPI.methods.response_objects.match.match &#8212; RiotAPI 1.0.0 documentation</title>
+    <link rel="stylesheet" href="../../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for riotAPI.methods.response_objects.match.match</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">Response</span><span class="p">,</span> <span class="n">Response_list</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">Player</span><span class="p">,</span> <span class="n">Player_list</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">Team_list</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Match&quot;</span><span class="p">,</span> <span class="s2">&quot;Match_list&quot;</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">get_participants_teams</span><span class="p">(</span><span class="n">teams</span><span class="p">,</span> <span class="n">participants</span><span class="p">,</span> <span class="n">participantIdentities</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Divide os participantes entre os times.</span>
+
+<span class="sd">    [participants[cont:cont+size_teams] for cont in range(0,len(participants),size_teams)]</span>
+
+<span class="sd">    :param teams:  Lista contendo estatisticas dos times.</span>
+<span class="sd">    :param participants: Lista contendo estatisticas dos participantes da partida..</span>
+<span class="sd">    :param participantIdentities: Lista contendo detalhes das contas dos participantes..</span>
+<span class="sd">    :return: Lista contendo tuplas do time no formato (team_stats,participants_team,participantIdentities_team)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">quant_teams</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">teams</span><span class="p">)</span>
+    <span class="n">size_team</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">participants</span><span class="p">)</span><span class="o">/</span><span class="n">quant_teams</span><span class="p">)</span>
+    <span class="n">teams_participants</span> <span class="o">=</span> <span class="p">[</span><span class="n">participants</span><span class="p">[</span><span class="n">cont</span><span class="p">:</span><span class="n">cont</span><span class="o">+</span><span class="n">size_team</span><span class="p">]</span> <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">participants</span><span class="p">),</span><span class="n">size_team</span><span class="p">)]</span>
+    <span class="n">teams_participantIdentities</span> <span class="o">=</span> <span class="p">[</span><span class="n">participantIdentities</span><span class="p">[</span><span class="n">cont</span><span class="p">:</span><span class="n">cont</span><span class="o">+</span><span class="n">size_team</span><span class="p">]</span> <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">participants</span><span class="p">),</span><span class="n">size_team</span><span class="p">)]</span>
+
+    <span class="n">teams</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s1">&#39;atributes_team&#39;</span><span class="p">:</span> <span class="n">atributes_team</span><span class="p">,</span> <span class="s1">&#39;participants&#39;</span><span class="p">:</span> <span class="n">participants</span><span class="p">,</span> <span class="s1">&#39;participantIdentities&#39;</span><span class="p">:</span> <span class="n">participantIdentities</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">atributes_team</span><span class="p">,</span> <span class="n">participants</span><span class="p">,</span> <span class="n">participantIdentities</span> <span class="ow">in</span>
+        <span class="nb">zip</span><span class="p">(</span><span class="n">teams</span><span class="p">,</span> <span class="n">teams_participants</span><span class="p">,</span> <span class="n">teams_participantIdentities</span><span class="p">)]</span>
+
+    <span class="k">return</span> <span class="n">teams</span>
+
+
+<div class="viewcode-block" id="Match"><a class="viewcode-back" href="../../../../../riotAPI.methods.response_objects.match.html#riotAPI.methods.response_objects.Match">[docs]</a><span class="k">class</span> <span class="nc">Match</span><span class="p">(</span><span class="n">Team_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe que representa o resultado do metodo getMatch, disponivel em</span>
+<span class="sd">    https://developer.riotgames.com/api-methods/#match-v3/GET_getMatch</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gameId</span><span class="p">,</span> <span class="n">platformId</span><span class="p">,</span> <span class="n">gameCreation</span><span class="p">,</span> <span class="n">gameDuration</span><span class="p">,</span> <span class="n">queueId</span><span class="p">,</span> <span class="n">mapId</span><span class="p">,</span> <span class="n">seasonId</span><span class="p">,</span>
+                 <span class="n">gameVersion</span><span class="p">,</span> <span class="n">gameMode</span><span class="p">,</span> <span class="n">gameType</span><span class="p">,</span> <span class="n">teams</span><span class="p">,</span> <span class="n">participants</span><span class="p">,</span> <span class="n">participantIdentities</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Inicializa um objeto do tipo Match.</span>
+
+<span class="sd">        :param gameId: Id da partida.</span>
+<span class="sd">        :param platformId: Id do servidor em que a partida foi jogada.</span>
+<span class="sd">        :param gameCreation: Data em que a partida ocorreu em milesegundos.</span>
+<span class="sd">        :param gameDuration: Duração da partida em segundos.</span>
+<span class="sd">        :param queueId: codigo do tipo de partida.</span>
+<span class="sd">        :param mapId: Id do map em que a partida foi jogada.</span>
+<span class="sd">        :param seasonId: Id da temporada em que a partida ocorreu.</span>
+<span class="sd">        :param gameVersion: versão do jogo.</span>
+<span class="sd">        :param gameMode: Modo de jogo.</span>
+<span class="sd">        :param gameType: Tipo de partida.</span>
+<span class="sd">        :param teams: Lista contendo estatisticas dos times.</span>
+<span class="sd">        :param participants: Lista contendo estatisticas dos participantes da partida.</span>
+<span class="sd">        :param participantIdentities: Lista contendo detalhes das contas dos participantes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameId</span> <span class="o">=</span> <span class="n">gameId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">platformId</span> <span class="o">=</span> <span class="n">platformId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameCreation</span> <span class="o">=</span> <span class="n">gameCreation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameDuration</span> <span class="o">=</span> <span class="n">gameDuration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queueId</span> <span class="o">=</span> <span class="n">queueId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameVersion</span> <span class="o">=</span> <span class="n">gameVersion</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameMode</span> <span class="o">=</span> <span class="n">gameMode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameType</span> <span class="o">=</span> <span class="n">gameType</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="n">mapId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">season</span> <span class="o">=</span> <span class="n">seasonId</span>
+
+        <span class="c1"># self.teams=[Team(**kwargs_team) for kwargs_team in teams]</span>
+        <span class="n">teams</span> <span class="o">=</span> <span class="n">get_participants_teams</span><span class="p">(</span><span class="n">teams</span><span class="p">,</span> <span class="n">participants</span><span class="p">,</span> <span class="n">participantIdentities</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">teams</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Match_list"><a class="viewcode-back" href="../../../../../riotAPI.methods.response_objects.match.html#riotAPI.methods.response_objects.Match_list">[docs]</a><span class="k">class</span> <span class="nc">Match_list</span><span class="p">(</span><span class="n">Response_list</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Match_list.load_response_object"><a class="viewcode-back" href="../../../../../riotAPI.methods.response_objects.match.html#riotAPI.methods.response_objects.Match_list.load_response_object">[docs]</a>    <span class="k">def</span> <span class="nf">load_response_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metodo que retorna um objeto do tipo Match</span>
+
+<span class="sd">        :param kwargs: dicionario contendo as variaveis presentes na</span>
+<span class="sd">        classe Match.</span>
+<span class="sd">        :return: Match</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">Match</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, jadson.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

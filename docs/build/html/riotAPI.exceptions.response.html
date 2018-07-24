@@ -1,0 +1,633 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>riotAPI.exceptions.response package &#8212; RiotAPI 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="riotapi-exceptions-response-package">
+<h1>riotAPI.exceptions.response package<a class="headerlink" href="#riotapi-exceptions-response-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-riotAPI.exceptions.response.invalid_request">
+<span id="riotapi-exceptions-response-invalid-request-module"></span><h2>riotAPI.exceptions.response.invalid_request module<a class="headerlink" href="#module-riotAPI.exceptions.response.invalid_request" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="riotAPI.exceptions.response.invalid_request.BadRequest">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.response.invalid_request.</code><code class="descname">BadRequest</code><span class="sig-paren">(</span><em>url_request</em>, <em>headers_request</em>, <em>headers_response</em>, <em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/invalid_request.html#BadRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.BadRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#riotAPI.exceptions.response.response.ResponseException" title="riotAPI.exceptions.response.response.ResponseException"><code class="xref py py-class docutils literal notranslate"><span class="pre">riotAPI.exceptions.response.response.ResponseException</span></code></a></p>
+<p>Classe que representa a exceção levantada por um erro de sintaxe presente na url.</p>
+<p>Codigo erro:400.</p>
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.BadRequest.CODE">
+<code class="descname">CODE</code><em class="property"> = 400</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.BadRequest.CODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.BadRequest.COMMOM_REASONS">
+<code class="descname">COMMOM_REASONS</code><em class="property"> = ['Um parâmetro fornecido está no formato incorreto (por exemplo, uma string em vez de um inteiro).', 'Um parâmetro fornecido é inválido (por exemplo, beginTime e startTime especificam um intervalo de tempo muito grande).', 'Um parâmetro obrigatório não foi fornecido.']</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.BadRequest.COMMOM_REASONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.BadRequest.DESCRIPTION">
+<code class="descname">DESCRIPTION</code><em class="property"> = 'Esse erro indica que há um erro de sintaxe na solicitação e, portanto, a solicitação foi negada. O cliente não deve continuar a fazer solicitações semelhantes sem modificar a sintaxe ou as solicitações que estão sendo feitas.'</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.BadRequest.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="riotAPI.exceptions.response.invalid_request.Forbidden">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.response.invalid_request.</code><code class="descname">Forbidden</code><span class="sig-paren">(</span><em>url_request</em>, <em>headers_request</em>, <em>headers_response</em>, <em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/invalid_request.html#Forbidden"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.Forbidden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#riotAPI.exceptions.response.response.ResponseException" title="riotAPI.exceptions.response.response.ResponseException"><code class="xref py py-class docutils literal notranslate"><span class="pre">riotAPI.exceptions.response.response.ResponseException</span></code></a></p>
+<p>Classe que representa a exceção levantada pela falta de uma chave de autenticação valida na requisição.</p>
+<p>Codigo erro:403.</p>
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.Forbidden.CODE">
+<code class="descname">CODE</code><em class="property"> = 403</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.Forbidden.CODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.Forbidden.COMMOM_REASONS">
+<code class="descname">COMMOM_REASONS</code><em class="property"> = ['Uma chave de API inválida foi fornecida com a solicitação da API.', 'Uma chave de API na lista negra foi fornecida com a solicitação da API.', 'A solicitação da API era para um caminho incorreto ou sem suporte.']</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.Forbidden.COMMOM_REASONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.Forbidden.DESCRIPTION">
+<code class="descname">DESCRIPTION</code><em class="property"> = 'Esse erro indica que o servidor entendeu a solicitação, mas se recusou a autorizá-la. Não há distinção entre um caminho inválido ou credenciaisde autorização inválidas (por exemplo, uma chave de API). O cliente não deve continuar fazendo solicitações semelhantes'</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.Forbidden.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="riotAPI.exceptions.response.invalid_request.Unauthoritzed">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.response.invalid_request.</code><code class="descname">Unauthoritzed</code><span class="sig-paren">(</span><em>url_request</em>, <em>headers_request</em>, <em>headers_response</em>, <em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/invalid_request.html#Unauthoritzed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.Unauthoritzed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#riotAPI.exceptions.response.response.ResponseException" title="riotAPI.exceptions.response.response.ResponseException"><code class="xref py py-class docutils literal notranslate"><span class="pre">riotAPI.exceptions.response.response.ResponseException</span></code></a></p>
+<p>Classe que representa a exceção levantada pela falta de uma chave de autenticação na requisição.</p>
+<p>Codigo erro:401.</p>
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.Unauthoritzed.CODE">
+<code class="descname">CODE</code><em class="property"> = 401</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.Unauthoritzed.CODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.Unauthoritzed.COMMOM_REASONS">
+<code class="descname">COMMOM_REASONS</code><em class="property"> = ['Uma chave de API não foi incluída na solicitação.']</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.Unauthoritzed.COMMOM_REASONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.Unauthoritzed.DESCRIPTION">
+<code class="descname">DESCRIPTION</code><em class="property"> = 'Esse erro indica que a solicitação sendo feita não continha as credenciais de autenticação necessárias (por exemplo, uma chave de API) e, portanto, foi negado o acesso ao cliente. O cliente não deve continuar a fazer solicitações semelhantes sem incluir uma chave de API na solicitação.'</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.Unauthoritzed.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="riotAPI.exceptions.response.invalid_request.NotFound">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.response.invalid_request.</code><code class="descname">NotFound</code><span class="sig-paren">(</span><em>url_request</em>, <em>headers_request</em>, <em>headers_response</em>, <em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/invalid_request.html#NotFound"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.NotFound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#riotAPI.exceptions.response.response.ResponseException" title="riotAPI.exceptions.response.response.ResponseException"><code class="xref py py-class docutils literal notranslate"><span class="pre">riotAPI.exceptions.response.response.ResponseException</span></code></a></p>
+<p>Classe que representa a exceção levantada porque o servidor não conseguiu encontrar uma correspondência para a
+requisição feita.</p>
+<p>Codigo erro:404.</p>
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.NotFound.CODE">
+<code class="descname">CODE</code><em class="property"> = 404</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.NotFound.CODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.NotFound.COMMOM_REASONS">
+<code class="descname">COMMOM_REASONS</code><em class="property"> = ['O ID ou nome fornecido não corresponde a nenhum recurso existente (por exemplo, não há invocador correspondente ao ID especificado).', 'Não há recursos que correspondam aos parâmetros especificados.']</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.NotFound.COMMOM_REASONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.NotFound.DESCRIPTION">
+<code class="descname">DESCRIPTION</code><em class="property"> = 'Esse erro indica que o servidor não encontrou uma correspondência para a solicitação da API que está sendo feita. Nenhuma indicação é dada se a condição é temporária ou permanente.'</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.NotFound.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="riotAPI.exceptions.response.invalid_request.RateLimitExceeded">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.response.invalid_request.</code><code class="descname">RateLimitExceeded</code><span class="sig-paren">(</span><em>url_request</em>, <em>headers_request</em>, <em>headers_response</em>, <em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/invalid_request.html#RateLimitExceeded"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.RateLimitExceeded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#riotAPI.exceptions.response.response.ResponseException" title="riotAPI.exceptions.response.response.ResponseException"><code class="xref py py-class docutils literal notranslate"><span class="pre">riotAPI.exceptions.response.response.ResponseException</span></code></a></p>
+<p>Classe que representa a exceção levantada porque se atingiu o limite de requisições feita a um metodo
+com uma api key.</p>
+<p>Codigo erro:429.</p>
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.RateLimitExceeded.CODE">
+<code class="descname">CODE</code><em class="property"> = 429</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.RateLimitExceeded.CODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.RateLimitExceeded.COMMOM_REASONS">
+<code class="descname">COMMOM_REASONS</code><em class="property"> = ['Chamadas de API não regulamentadas,ver o cabesalho de resposta e os logs de requisições para monitorar a atividade da sua chave API']</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.RateLimitExceeded.COMMOM_REASONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.RateLimitExceeded.DESCRIPTION">
+<code class="descname">DESCRIPTION</code><em class="property"> = 'Esse erro indica que o aplicativo esgotou seu número máximo de chamadas de API permitidas por uma determinada duração. Se o cliente receber uma resposta de Taxa Limite Excedida, o cliente deverá processar essa resposta e interromper futuras chamadas da API pela duração, em segundos, indicada pelo cabeçalho Retry-After. Aplicativos que violam esta política podem ter seu acesso desativado para preservar a integridade da API. Consulte a documentação de limitação de taxa,, em https://developer.riotgames.com/rate-limiting.html, para obter mais informações sobre como determinar se você tem uma taxa limitada e como evitá-la.'</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.RateLimitExceeded.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="riotAPI.exceptions.response.invalid_request.UnsupportedMediaType">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.response.invalid_request.</code><code class="descname">UnsupportedMediaType</code><span class="sig-paren">(</span><em>url_request</em>, <em>headers_request</em>, <em>headers_response</em>, <em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/invalid_request.html#UnsupportedMediaType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.UnsupportedMediaType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#riotAPI.exceptions.response.response.ResponseException" title="riotAPI.exceptions.response.response.ResponseException"><code class="xref py py-class docutils literal notranslate"><span class="pre">riotAPI.exceptions.response.response.ResponseException</span></code></a></p>
+<p>Classe que representa a exceção levantada por uma definição incorreta do cabeçalho Content-Type.</p>
+<p>Codigo erro:415.</p>
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.UnsupportedMediaType.CODE">
+<code class="descname">CODE</code><em class="property"> = 415</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.UnsupportedMediaType.CODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.UnsupportedMediaType.COMMOM_REASONS">
+<code class="descname">COMMOM_REASONS</code><em class="property"> = ['O cabeçalho Content-Type não foi definido adequadamente.']</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.UnsupportedMediaType.COMMOM_REASONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.invalid_request.UnsupportedMediaType.DESCRIPTION">
+<code class="descname">DESCRIPTION</code><em class="property"> = 'Esse erro indica que o servidor está se recusando a atender a solicitação porque o corpo da solicitação está em um formato que não é suportado.'</em><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.UnsupportedMediaType.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="riotAPI.exceptions.response.invalid_request.get_invalid_request">
+<code class="descclassname">riotAPI.exceptions.response.invalid_request.</code><code class="descname">get_invalid_request</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/invalid_request.html#get_invalid_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.get_invalid_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retorna a classe do erro correspondente ao codigo passado se ele
+for ele for caracterizado como um erro do requisição, caso contrario
+vai ser lançado uma exeção.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>code</strong> – codigo do erro</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">codigo de resposta do servidor.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="riotAPI.exceptions.response.invalid_request.is_invalid_request">
+<code class="descclassname">riotAPI.exceptions.response.invalid_request.</code><code class="descname">is_invalid_request</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/invalid_request.html#is_invalid_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.invalid_request.is_invalid_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verifica se um codigo representa um erro de requisição.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>code</strong> – codigo de resposta do servidor.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-riotAPI.exceptions.response.response">
+<span id="riotapi-exceptions-response-response-module"></span><h2>riotAPI.exceptions.response.response module<a class="headerlink" href="#module-riotAPI.exceptions.response.response" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="riotAPI.exceptions.response.response.ResponseException">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.response.response.</code><code class="descname">ResponseException</code><span class="sig-paren">(</span><em>url_request</em>, <em>headers_request</em>, <em>headers_response</em>, <em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/response.html#ResponseException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.response.ResponseException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Super-classe das exceções levantadas de acordo com a resposta do servidor.
+Mais informações em <a class="reference external" href="https://developer.riotgames.com/response-codes.html">https://developer.riotgames.com/response-codes.html</a></p>
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.response.ResponseException.CODE">
+<code class="descname">CODE</code><em class="property"> = None</em><a class="headerlink" href="#riotAPI.exceptions.response.response.ResponseException.CODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.response.ResponseException.COMMOM_REASONS">
+<code class="descname">COMMOM_REASONS</code><em class="property"> = None</em><a class="headerlink" href="#riotAPI.exceptions.response.response.ResponseException.COMMOM_REASONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.response.ResponseException.DESCRIPTION">
+<code class="descname">DESCRIPTION</code><em class="property"> = None</em><a class="headerlink" href="#riotAPI.exceptions.response.response.ResponseException.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.response.ResponseException.FILE_LOG_PATH">
+<code class="descname">FILE_LOG_PATH</code><em class="property"> = 'riot_api/files/logs/response_error.txt'</em><a class="headerlink" href="#riotAPI.exceptions.response.response.ResponseException.FILE_LOG_PATH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="riotAPI.exceptions.response.response.ResponseException.save_log">
+<code class="descname">save_log</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/response.html#ResponseException.save_log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.response.ResponseException.save_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Salva em um arquivo de logs o tipo de erro de resposta a url utilizada para fazer a requisição
+os cabeçalhos de requisição e resposta e os parametros utilizados na requisição.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-riotAPI.exceptions.response.server_error">
+<span id="riotapi-exceptions-response-server-error-module"></span><h2>riotAPI.exceptions.response.server_error module<a class="headerlink" href="#module-riotAPI.exceptions.response.server_error" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="riotAPI.exceptions.response.server_error.InternalServerError">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.response.server_error.</code><code class="descname">InternalServerError</code><span class="sig-paren">(</span><em>url_request</em>, <em>headers_request</em>, <em>headers_response</em>, <em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/server_error.html#InternalServerError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.server_error.InternalServerError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#riotAPI.exceptions.response.response.ResponseException" title="riotAPI.exceptions.response.response.ResponseException"><code class="xref py py-class docutils literal notranslate"><span class="pre">riotAPI.exceptions.response.response.ResponseException</span></code></a></p>
+<p>Classe que representa a exceção levantada por um erro interno do servidor.</p>
+<p>Codigo erro:500.</p>
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.server_error.InternalServerError.CODE">
+<code class="descname">CODE</code><em class="property"> = 500</em><a class="headerlink" href="#riotAPI.exceptions.response.server_error.InternalServerError.CODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.server_error.InternalServerError.COMMOM_REASONS">
+<code class="descname">COMMOM_REASONS</code><em class="property"> = []</em><a class="headerlink" href="#riotAPI.exceptions.response.server_error.InternalServerError.COMMOM_REASONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.server_error.InternalServerError.DESCRIPTION">
+<code class="descname">DESCRIPTION</code><em class="property"> = 'Esse erro indica uma condição ou exceção inesperada que impediu que o servidor cumprisse uma solicitação da API.'</em><a class="headerlink" href="#riotAPI.exceptions.response.server_error.InternalServerError.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="riotAPI.exceptions.response.server_error.ServiceUnavailable">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.response.server_error.</code><code class="descname">ServiceUnavailable</code><span class="sig-paren">(</span><em>url_request</em>, <em>headers_request</em>, <em>headers_response</em>, <em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/server_error.html#ServiceUnavailable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.server_error.ServiceUnavailable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#riotAPI.exceptions.response.response.ResponseException" title="riotAPI.exceptions.response.response.ResponseException"><code class="xref py py-class docutils literal notranslate"><span class="pre">riotAPI.exceptions.response.response.ResponseException</span></code></a></p>
+<p>Classe que representa a exceção levantada por um erro causado pela indisponibilidade
+do servidor de manipular a solicitação devido a algum motivo.</p>
+<p>Cddigo erro:503.</p>
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.server_error.ServiceUnavailable.CODE">
+<code class="descname">CODE</code><em class="property"> = 503</em><a class="headerlink" href="#riotAPI.exceptions.response.server_error.ServiceUnavailable.CODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.server_error.ServiceUnavailable.COMMOM_REASONS">
+<code class="descname">COMMOM_REASONS</code><em class="property"> = []</em><a class="headerlink" href="#riotAPI.exceptions.response.server_error.ServiceUnavailable.COMMOM_REASONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.server_error.ServiceUnavailable.DESCRIPTION">
+<code class="descname">DESCRIPTION</code><em class="property"> = 'Esse erro indica que o servidor está indisponível no momento para manipular solicitações devido a um motivo desconhecido. A resposta Serviço indisponível indica uma condição temporária que será aliviada após algum atraso.'</em><a class="headerlink" href="#riotAPI.exceptions.response.server_error.ServiceUnavailable.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="riotAPI.exceptions.response.server_error.get_server_error">
+<code class="descclassname">riotAPI.exceptions.response.server_error.</code><code class="descname">get_server_error</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/server_error.html#get_server_error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.server_error.get_server_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retorna a classe do erro correspondente ao codigo passado se ele
+for ele for caracterizado como um erro do servidor, caso contrario
+vai ser lançado uma exeção.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>code</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">codigo de resposta do servidor.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="riotAPI.exceptions.response.server_error.is_server_error">
+<code class="descclassname">riotAPI.exceptions.response.server_error.</code><code class="descname">is_server_error</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/server_error.html#is_server_error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.server_error.is_server_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verifica se um codigo representa um erro do servidor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>code</strong> – codigo de resposta do servidor.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-riotAPI.exceptions.response">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-riotAPI.exceptions.response" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="riotAPI.exceptions.response.BadRequest">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.response.</code><code class="descname">BadRequest</code><span class="sig-paren">(</span><em>url_request</em>, <em>headers_request</em>, <em>headers_response</em>, <em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/invalid_request.html#BadRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.BadRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#riotAPI.exceptions.response.response.ResponseException" title="riotAPI.exceptions.response.response.ResponseException"><code class="xref py py-class docutils literal notranslate"><span class="pre">riotAPI.exceptions.response.response.ResponseException</span></code></a></p>
+<p>Classe que representa a exceção levantada por um erro de sintaxe presente na url.</p>
+<p>Codigo erro:400.</p>
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.BadRequest.CODE">
+<code class="descname">CODE</code><em class="property"> = 400</em><a class="headerlink" href="#riotAPI.exceptions.response.BadRequest.CODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.BadRequest.COMMOM_REASONS">
+<code class="descname">COMMOM_REASONS</code><em class="property"> = ['Um parâmetro fornecido está no formato incorreto (por exemplo, uma string em vez de um inteiro).', 'Um parâmetro fornecido é inválido (por exemplo, beginTime e startTime especificam um intervalo de tempo muito grande).', 'Um parâmetro obrigatório não foi fornecido.']</em><a class="headerlink" href="#riotAPI.exceptions.response.BadRequest.COMMOM_REASONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.BadRequest.DESCRIPTION">
+<code class="descname">DESCRIPTION</code><em class="property"> = 'Esse erro indica que há um erro de sintaxe na solicitação e, portanto, a solicitação foi negada. O cliente não deve continuar a fazer solicitações semelhantes sem modificar a sintaxe ou as solicitações que estão sendo feitas.'</em><a class="headerlink" href="#riotAPI.exceptions.response.BadRequest.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="riotAPI.exceptions.response.Forbidden">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.response.</code><code class="descname">Forbidden</code><span class="sig-paren">(</span><em>url_request</em>, <em>headers_request</em>, <em>headers_response</em>, <em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/invalid_request.html#Forbidden"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.Forbidden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#riotAPI.exceptions.response.response.ResponseException" title="riotAPI.exceptions.response.response.ResponseException"><code class="xref py py-class docutils literal notranslate"><span class="pre">riotAPI.exceptions.response.response.ResponseException</span></code></a></p>
+<p>Classe que representa a exceção levantada pela falta de uma chave de autenticação valida na requisição.</p>
+<p>Codigo erro:403.</p>
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.Forbidden.CODE">
+<code class="descname">CODE</code><em class="property"> = 403</em><a class="headerlink" href="#riotAPI.exceptions.response.Forbidden.CODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.Forbidden.COMMOM_REASONS">
+<code class="descname">COMMOM_REASONS</code><em class="property"> = ['Uma chave de API inválida foi fornecida com a solicitação da API.', 'Uma chave de API na lista negra foi fornecida com a solicitação da API.', 'A solicitação da API era para um caminho incorreto ou sem suporte.']</em><a class="headerlink" href="#riotAPI.exceptions.response.Forbidden.COMMOM_REASONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.Forbidden.DESCRIPTION">
+<code class="descname">DESCRIPTION</code><em class="property"> = 'Esse erro indica que o servidor entendeu a solicitação, mas se recusou a autorizá-la. Não há distinção entre um caminho inválido ou credenciaisde autorização inválidas (por exemplo, uma chave de API). O cliente não deve continuar fazendo solicitações semelhantes'</em><a class="headerlink" href="#riotAPI.exceptions.response.Forbidden.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="riotAPI.exceptions.response.Unauthoritzed">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.response.</code><code class="descname">Unauthoritzed</code><span class="sig-paren">(</span><em>url_request</em>, <em>headers_request</em>, <em>headers_response</em>, <em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/invalid_request.html#Unauthoritzed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.Unauthoritzed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#riotAPI.exceptions.response.response.ResponseException" title="riotAPI.exceptions.response.response.ResponseException"><code class="xref py py-class docutils literal notranslate"><span class="pre">riotAPI.exceptions.response.response.ResponseException</span></code></a></p>
+<p>Classe que representa a exceção levantada pela falta de uma chave de autenticação na requisição.</p>
+<p>Codigo erro:401.</p>
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.Unauthoritzed.CODE">
+<code class="descname">CODE</code><em class="property"> = 401</em><a class="headerlink" href="#riotAPI.exceptions.response.Unauthoritzed.CODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.Unauthoritzed.COMMOM_REASONS">
+<code class="descname">COMMOM_REASONS</code><em class="property"> = ['Uma chave de API não foi incluída na solicitação.']</em><a class="headerlink" href="#riotAPI.exceptions.response.Unauthoritzed.COMMOM_REASONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.Unauthoritzed.DESCRIPTION">
+<code class="descname">DESCRIPTION</code><em class="property"> = 'Esse erro indica que a solicitação sendo feita não continha as credenciais de autenticação necessárias (por exemplo, uma chave de API) e, portanto, foi negado o acesso ao cliente. O cliente não deve continuar a fazer solicitações semelhantes sem incluir uma chave de API na solicitação.'</em><a class="headerlink" href="#riotAPI.exceptions.response.Unauthoritzed.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="riotAPI.exceptions.response.NotFound">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.response.</code><code class="descname">NotFound</code><span class="sig-paren">(</span><em>url_request</em>, <em>headers_request</em>, <em>headers_response</em>, <em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/invalid_request.html#NotFound"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.NotFound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#riotAPI.exceptions.response.response.ResponseException" title="riotAPI.exceptions.response.response.ResponseException"><code class="xref py py-class docutils literal notranslate"><span class="pre">riotAPI.exceptions.response.response.ResponseException</span></code></a></p>
+<p>Classe que representa a exceção levantada porque o servidor não conseguiu encontrar uma correspondência para a
+requisição feita.</p>
+<p>Codigo erro:404.</p>
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.NotFound.CODE">
+<code class="descname">CODE</code><em class="property"> = 404</em><a class="headerlink" href="#riotAPI.exceptions.response.NotFound.CODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.NotFound.COMMOM_REASONS">
+<code class="descname">COMMOM_REASONS</code><em class="property"> = ['O ID ou nome fornecido não corresponde a nenhum recurso existente (por exemplo, não há invocador correspondente ao ID especificado).', 'Não há recursos que correspondam aos parâmetros especificados.']</em><a class="headerlink" href="#riotAPI.exceptions.response.NotFound.COMMOM_REASONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.NotFound.DESCRIPTION">
+<code class="descname">DESCRIPTION</code><em class="property"> = 'Esse erro indica que o servidor não encontrou uma correspondência para a solicitação da API que está sendo feita. Nenhuma indicação é dada se a condição é temporária ou permanente.'</em><a class="headerlink" href="#riotAPI.exceptions.response.NotFound.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="riotAPI.exceptions.response.RateLimitExceeded">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.response.</code><code class="descname">RateLimitExceeded</code><span class="sig-paren">(</span><em>url_request</em>, <em>headers_request</em>, <em>headers_response</em>, <em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/invalid_request.html#RateLimitExceeded"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.RateLimitExceeded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#riotAPI.exceptions.response.response.ResponseException" title="riotAPI.exceptions.response.response.ResponseException"><code class="xref py py-class docutils literal notranslate"><span class="pre">riotAPI.exceptions.response.response.ResponseException</span></code></a></p>
+<p>Classe que representa a exceção levantada porque se atingiu o limite de requisições feita a um metodo
+com uma api key.</p>
+<p>Codigo erro:429.</p>
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.RateLimitExceeded.CODE">
+<code class="descname">CODE</code><em class="property"> = 429</em><a class="headerlink" href="#riotAPI.exceptions.response.RateLimitExceeded.CODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.RateLimitExceeded.COMMOM_REASONS">
+<code class="descname">COMMOM_REASONS</code><em class="property"> = ['Chamadas de API não regulamentadas,ver o cabesalho de resposta e os logs de requisições para monitorar a atividade da sua chave API']</em><a class="headerlink" href="#riotAPI.exceptions.response.RateLimitExceeded.COMMOM_REASONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.RateLimitExceeded.DESCRIPTION">
+<code class="descname">DESCRIPTION</code><em class="property"> = 'Esse erro indica que o aplicativo esgotou seu número máximo de chamadas de API permitidas por uma determinada duração. Se o cliente receber uma resposta de Taxa Limite Excedida, o cliente deverá processar essa resposta e interromper futuras chamadas da API pela duração, em segundos, indicada pelo cabeçalho Retry-After. Aplicativos que violam esta política podem ter seu acesso desativado para preservar a integridade da API. Consulte a documentação de limitação de taxa,, em https://developer.riotgames.com/rate-limiting.html, para obter mais informações sobre como determinar se você tem uma taxa limitada e como evitá-la.'</em><a class="headerlink" href="#riotAPI.exceptions.response.RateLimitExceeded.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="riotAPI.exceptions.response.UnsupportedMediaType">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.response.</code><code class="descname">UnsupportedMediaType</code><span class="sig-paren">(</span><em>url_request</em>, <em>headers_request</em>, <em>headers_response</em>, <em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/invalid_request.html#UnsupportedMediaType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.UnsupportedMediaType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#riotAPI.exceptions.response.response.ResponseException" title="riotAPI.exceptions.response.response.ResponseException"><code class="xref py py-class docutils literal notranslate"><span class="pre">riotAPI.exceptions.response.response.ResponseException</span></code></a></p>
+<p>Classe que representa a exceção levantada por uma definição incorreta do cabeçalho Content-Type.</p>
+<p>Codigo erro:415.</p>
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.UnsupportedMediaType.CODE">
+<code class="descname">CODE</code><em class="property"> = 415</em><a class="headerlink" href="#riotAPI.exceptions.response.UnsupportedMediaType.CODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.UnsupportedMediaType.COMMOM_REASONS">
+<code class="descname">COMMOM_REASONS</code><em class="property"> = ['O cabeçalho Content-Type não foi definido adequadamente.']</em><a class="headerlink" href="#riotAPI.exceptions.response.UnsupportedMediaType.COMMOM_REASONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.UnsupportedMediaType.DESCRIPTION">
+<code class="descname">DESCRIPTION</code><em class="property"> = 'Esse erro indica que o servidor está se recusando a atender a solicitação porque o corpo da solicitação está em um formato que não é suportado.'</em><a class="headerlink" href="#riotAPI.exceptions.response.UnsupportedMediaType.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="riotAPI.exceptions.response.get_invalid_request">
+<code class="descclassname">riotAPI.exceptions.response.</code><code class="descname">get_invalid_request</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/invalid_request.html#get_invalid_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.get_invalid_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retorna a classe do erro correspondente ao codigo passado se ele
+for ele for caracterizado como um erro do requisição, caso contrario
+vai ser lançado uma exeção.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>code</strong> – codigo do erro</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">codigo de resposta do servidor.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="riotAPI.exceptions.response.is_invalid_request">
+<code class="descclassname">riotAPI.exceptions.response.</code><code class="descname">is_invalid_request</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/invalid_request.html#is_invalid_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.is_invalid_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verifica se um codigo representa um erro de requisição.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>code</strong> – codigo de resposta do servidor.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="exception">
+<dt id="riotAPI.exceptions.response.InternalServerError">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.response.</code><code class="descname">InternalServerError</code><span class="sig-paren">(</span><em>url_request</em>, <em>headers_request</em>, <em>headers_response</em>, <em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/server_error.html#InternalServerError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.InternalServerError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#riotAPI.exceptions.response.response.ResponseException" title="riotAPI.exceptions.response.response.ResponseException"><code class="xref py py-class docutils literal notranslate"><span class="pre">riotAPI.exceptions.response.response.ResponseException</span></code></a></p>
+<p>Classe que representa a exceção levantada por um erro interno do servidor.</p>
+<p>Codigo erro:500.</p>
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.InternalServerError.CODE">
+<code class="descname">CODE</code><em class="property"> = 500</em><a class="headerlink" href="#riotAPI.exceptions.response.InternalServerError.CODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.InternalServerError.COMMOM_REASONS">
+<code class="descname">COMMOM_REASONS</code><em class="property"> = []</em><a class="headerlink" href="#riotAPI.exceptions.response.InternalServerError.COMMOM_REASONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.InternalServerError.DESCRIPTION">
+<code class="descname">DESCRIPTION</code><em class="property"> = 'Esse erro indica uma condição ou exceção inesperada que impediu que o servidor cumprisse uma solicitação da API.'</em><a class="headerlink" href="#riotAPI.exceptions.response.InternalServerError.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="riotAPI.exceptions.response.ServiceUnavailable">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.response.</code><code class="descname">ServiceUnavailable</code><span class="sig-paren">(</span><em>url_request</em>, <em>headers_request</em>, <em>headers_response</em>, <em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/response/server_error.html#ServiceUnavailable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.response.ServiceUnavailable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#riotAPI.exceptions.response.response.ResponseException" title="riotAPI.exceptions.response.response.ResponseException"><code class="xref py py-class docutils literal notranslate"><span class="pre">riotAPI.exceptions.response.response.ResponseException</span></code></a></p>
+<p>Classe que representa a exceção levantada por um erro causado pela indisponibilidade
+do servidor de manipular a solicitação devido a algum motivo.</p>
+<p>Cddigo erro:503.</p>
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.ServiceUnavailable.CODE">
+<code class="descname">CODE</code><em class="property"> = 503</em><a class="headerlink" href="#riotAPI.exceptions.response.ServiceUnavailable.CODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.ServiceUnavailable.COMMOM_REASONS">
+<code class="descname">COMMOM_REASONS</code><em class="property"> = []</em><a class="headerlink" href="#riotAPI.exceptions.response.ServiceUnavailable.COMMOM_REASONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="riotAPI.exceptions.response.ServiceUnavailable.DESCRIPTION">
+<code class="descname">DESCRIPTION</code><em class="property"> = 'Esse erro indica que o servidor está indisponível no momento para manipular solicitações devido a um motivo desconhecido. A resposta Serviço indisponível indica uma condição temporária que será aliviada após algum atraso.'</em><a class="headerlink" href="#riotAPI.exceptions.response.ServiceUnavailable.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">riotAPI.exceptions.response package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-riotAPI.exceptions.response.invalid_request">riotAPI.exceptions.response.invalid_request module</a></li>
+<li><a class="reference internal" href="#module-riotAPI.exceptions.response.response">riotAPI.exceptions.response.response module</a></li>
+<li><a class="reference internal" href="#module-riotAPI.exceptions.response.server_error">riotAPI.exceptions.response.server_error module</a></li>
+<li><a class="reference internal" href="#module-riotAPI.exceptions.response">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/riotAPI.exceptions.response.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, jadson.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/riotAPI.exceptions.response.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

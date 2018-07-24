@@ -1,0 +1,149 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>riotAPI.exceptions package &#8212; RiotAPI 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="riotapi-exceptions-package">
+<h1>riotAPI.exceptions package<a class="headerlink" href="#riotapi-exceptions-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="riotAPI.exceptions.response.html">riotAPI.exceptions.response package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="riotAPI.exceptions.response.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="riotAPI.exceptions.response.html#module-riotAPI.exceptions.response.invalid_request">riotAPI.exceptions.response.invalid_request module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="riotAPI.exceptions.response.html#module-riotAPI.exceptions.response.response">riotAPI.exceptions.response.response module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="riotAPI.exceptions.response.html#module-riotAPI.exceptions.response.server_error">riotAPI.exceptions.response.server_error module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="riotAPI.exceptions.response.html#module-riotAPI.exceptions.response">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-riotAPI.exceptions.attribute">
+<span id="riotapi-exceptions-attribute-module"></span><h2>riotAPI.exceptions.attribute module<a class="headerlink" href="#module-riotAPI.exceptions.attribute" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="riotAPI.exceptions.attribute.AttributeNameError">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.attribute.</code><code class="descname">AttributeNameError</code><span class="sig-paren">(</span><em>attribute_name</em>, <em>query_attributes</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/attribute.html#AttributeNameError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.attribute.AttributeNameError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Classe que representa a excessão levantada quando o nome de um
+atributo opcional não corresponde a nenhum dos atributos opcionais
+do metodo</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="riotAPI.exceptions.attribute.AttributeSizeError">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.attribute.</code><code class="descname">AttributeSizeError</code><span class="sig-paren">(</span><em>passed_path_params</em>, <em>path_attributes</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/attribute.html#AttributeSizeError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.attribute.AttributeSizeError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Classe que representa a excessão levantada quando a quantidade
+de atributos obrigatorios passados difere da quantidade de atributos
+obrigatorios do metodo</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="riotAPI.exceptions.attribute.AttributeTypeError">
+<em class="property">exception </em><code class="descclassname">riotAPI.exceptions.attribute.</code><code class="descname">AttributeTypeError</code><span class="sig-paren">(</span><em>passed_type</em>, <em>attribute</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/riotAPI/exceptions/attribute.html#AttributeTypeError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#riotAPI.exceptions.attribute.AttributeTypeError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Classe que representa a excessão levantada quando o tipo de um
+atributo passado a um metodo não corresponde ao tipo real do atributo
+na api.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-riotAPI.exceptions">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-riotAPI.exceptions" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">riotAPI.exceptions package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-riotAPI.exceptions.attribute">riotAPI.exceptions.attribute module</a></li>
+<li><a class="reference internal" href="#module-riotAPI.exceptions">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/riotAPI.exceptions.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, jadson.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/riotAPI.exceptions.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

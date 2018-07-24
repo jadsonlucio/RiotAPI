@@ -1,0 +1,150 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>riotAPI.methods.api_methods.match &#8212; RiotAPI 1.0.0 documentation</title>
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for riotAPI.methods.api_methods.match</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">API_Method</span>
+<span class="kn">from</span> <span class="nn">..response_objects</span> <span class="k">import</span> <span class="n">Match</span><span class="p">,</span> <span class="n">Match_info_list</span>
+
+<span class="n">BASEURL</span> <span class="o">=</span> <span class="s2">&quot;lol/match/&quot;</span>
+<span class="n">VERSION</span> <span class="o">=</span> <span class="s2">&quot;v3/&quot;</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;MatchById&quot;</span><span class="p">,</span> <span class="s2">&quot;MatchListByAccountId&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="MatchById"><a class="viewcode-back" href="../../../../riotAPI.methods.api_methods.html#riotAPI.methods.api_methods.match.MatchById">[docs]</a><span class="k">class</span> <span class="nc">MatchById</span><span class="p">(</span><span class="n">API_Method</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe responsavel por implementar o metodo getMatch representado pela url</span>
+<span class="sd">    /lol/match/v3/matches/{matchId}</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">CUSTOM_URL</span> <span class="o">=</span> <span class="s2">&quot;matches/</span><span class="si">{1}</span><span class="s2">&quot;</span>
+    <span class="n">PATH_PARAMS</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;gameId&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;id da partida&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">}]</span>
+    <span class="n">QUERY_PARAMS</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">VERSION</span><span class="p">,</span> <span class="n">BASEURL</span><span class="p">,</span> <span class="n">MatchById</span><span class="o">.</span><span class="n">CUSTOM_URL</span><span class="p">,</span>
+                            <span class="n">MatchById</span><span class="o">.</span><span class="n">PATH_PARAMS</span><span class="p">,</span> <span class="n">MatchById</span><span class="o">.</span><span class="n">QUERY_PARAMS</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MatchById.request"><a class="viewcode-back" href="../../../../riotAPI.methods.api_methods.html#riotAPI.methods.api_methods.match.MatchById.request">[docs]</a>    <span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">gameId</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Método responsavel por fazer uma requisição</span>
+<span class="sd">        por uma partida.</span>
+
+<span class="sd">        :param gameId: id da partida.</span>
+<span class="sd">        :return: Match</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">gameId</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Match</span><span class="p">(</span><span class="o">**</span><span class="n">json</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="MatchListByAccountId"><a class="viewcode-back" href="../../../../riotAPI.methods.api_methods.html#riotAPI.methods.api_methods.match.MatchListByAccountId">[docs]</a><span class="k">class</span> <span class="nc">MatchListByAccountId</span><span class="p">(</span><span class="n">API_Method</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe responsavel por implementar o metodo getMatch representado pela url</span>
+<span class="sd">    /lol/match/v3/matches/{matchId}</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">CUSTOM_URL</span> <span class="o">=</span> <span class="s2">&quot;matchlists/by-account/</span><span class="si">{1}</span><span class="s2">&quot;</span>
+    <span class="n">PATH_PARAMS</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;accountId&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;id da conta do jogador&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">}]</span>
+    <span class="n">QUERY_PARAMS</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;endTime&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;beginIndex&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;beginTime&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;champion&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;endIndex&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;queue&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;season&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">}]</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">VERSION</span><span class="p">,</span> <span class="n">BASEURL</span><span class="p">,</span> <span class="n">MatchListByAccountId</span><span class="o">.</span><span class="n">CUSTOM_URL</span><span class="p">,</span>
+                            <span class="n">MatchListByAccountId</span><span class="o">.</span><span class="n">PATH_PARAMS</span><span class="p">,</span> <span class="n">MatchListByAccountId</span><span class="o">.</span><span class="n">QUERY_PARAMS</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MatchListByAccountId.request"><a class="viewcode-back" href="../../../../riotAPI.methods.api_methods.html#riotAPI.methods.api_methods.match.MatchListByAccountId.request">[docs]</a>    <span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">accountId</span><span class="p">,</span> <span class="n">beginIndex</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">endIndex</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">beginTime</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">endTime</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">queue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">season</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Método responsavel por fazer uma requisição</span>
+<span class="sd">        por uma lista de partidas.</span>
+
+<span class="sd">        :param accountId: id da conta do jogador.</span>
+<span class="sd">        :return: Match_list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">accountId</span><span class="p">,</span> <span class="n">beginIndex</span><span class="o">=</span><span class="n">beginIndex</span><span class="p">,</span> <span class="n">endIndex</span><span class="o">=</span><span class="n">endIndex</span><span class="p">,</span>
+                             <span class="n">beginTime</span><span class="o">=</span><span class="n">beginTime</span><span class="p">,</span> <span class="n">endTime</span><span class="o">=</span><span class="n">endTime</span><span class="p">,</span> <span class="n">queue</span><span class="o">=</span><span class="n">queue</span><span class="p">,</span> <span class="n">season</span><span class="o">=</span><span class="n">season</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Match_info_list</span><span class="p">(</span><span class="o">**</span><span class="n">json</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, jadson.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

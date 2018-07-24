@@ -1,0 +1,138 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>riotAPI.exceptions.response.response &#8212; RiotAPI 1.0.0 documentation</title>
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for riotAPI.exceptions.response.response</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">ctime</span>
+
+
+<div class="viewcode-block" id="ResponseException"><a class="viewcode-back" href="../../../../riotAPI.exceptions.response.html#riotAPI.exceptions.response.response.ResponseException">[docs]</a><span class="k">class</span> <span class="nc">ResponseException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Super-classe das exceções levantadas de acordo com a resposta do servidor.</span>
+<span class="sd">    Mais informações em https://developer.riotgames.com/response-codes.html</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">CODE</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">DESCRIPTION</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">COMMOM_REASONS</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">FILE_LOG_PATH</span> <span class="o">=</span> <span class="s2">&quot;riot_api/files/logs/response_error.txt&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url_request</span><span class="p">,</span> <span class="n">headers_request</span><span class="p">,</span> <span class="n">headers_response</span><span class="p">,</span> <span class="n">query_params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Inicializa uma exceção</span>
+
+<span class="sd">        :param url_request: url requisitada</span>
+<span class="sd">        :param headers_request: cabeçalho embutido na requisição</span>
+<span class="sd">        :param headers_response: cabeçalho de resposta do servidor</span>
+<span class="sd">        :param query_params: parametros opcionais utilizados na requisição</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url_request</span> <span class="o">=</span> <span class="n">url_request</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">headers_request</span> <span class="o">=</span> <span class="n">headers_request</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">headers_response</span> <span class="o">=</span> <span class="n">headers_response</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">query_params</span> <span class="o">=</span> <span class="n">query_params</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_log</span><span class="p">()</span>
+
+<div class="viewcode-block" id="ResponseException.save_log"><a class="viewcode-back" href="../../../../riotAPI.exceptions.response.html#riotAPI.exceptions.response.response.ResponseException.save_log">[docs]</a>    <span class="k">def</span> <span class="nf">save_log</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Salva em um arquivo de logs o tipo de erro de resposta a url utilizada para fazer a requisição</span>
+<span class="sd">        os cabeçalhos de requisição e resposta e os parametros utilizados na requisição.</span>
+
+<span class="sd">        :return: None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">log_msg</span> <span class="o">=</span> <span class="s2">&quot;[</span><span class="si">{0}</span><span class="s2">]</span><span class="se">\n</span><span class="s2">Codigo do erro:</span><span class="si">{1}</span><span class="se">\n</span><span class="s2">Data da requisição:</span><span class="se">\n</span><span class="s2">url_requisitada:</span><span class="si">{2}</span><span class="se">\n</span><span class="s2">cabecalho_requisitado:</span><span class="si">{3}</span><span class="se">\</span>
+<span class="s2">                 </span><span class="se">\n</span><span class="s2">parametros_requisitados:</span><span class="si">{4}</span><span class="se">\n</span><span class="s2">cabecalho_resposta:</span><span class="si">{5}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ctime</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">CODE</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">url_request</span><span class="p">,</span>
+                                                                                 <span class="bp">self</span><span class="o">.</span><span class="n">headers_request</span><span class="p">,</span>
+                                                                                 <span class="bp">self</span><span class="o">.</span><span class="n">query_params</span><span class="p">,</span>
+                                                                                 <span class="bp">self</span><span class="o">.</span><span class="n">headers_response</span><span class="p">)</span>
+
+        <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">FILE_LOG_PATH</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">log_msg</span><span class="p">)</span></div>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Função responsavel por imprimir a mensagem de erro após a execeção ter sido</span>
+<span class="sd">        lancada com o raise.</span>
+
+<span class="sd">        :return: Str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">error_msg</span> <span class="o">=</span> <span class="s2">&quot;Codigo de resposta do erro: </span><span class="si">{0}</span><span class="se">\n\n</span><span class="s2">Descrição: </span><span class="si">{1}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">CODE</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">DESCRIPTION</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">COMMOM_REASONS</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">error_msg</span> <span class="o">=</span> <span class="n">error_msg</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Causas comuns do erro:&quot;</span>
+            <span class="k">for</span> <span class="n">reason</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">COMMOM_REASONS</span><span class="p">:</span>
+                <span class="n">error_msg</span> <span class="o">=</span> <span class="n">error_msg</span> <span class="o">+</span> <span class="n">reason</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">error_msg</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, jadson.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

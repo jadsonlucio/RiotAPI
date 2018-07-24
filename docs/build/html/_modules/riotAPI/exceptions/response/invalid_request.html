@@ -1,0 +1,218 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>riotAPI.exceptions.response.invalid_request &#8212; RiotAPI 1.0.0 documentation</title>
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for riotAPI.exceptions.response.invalid_request</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">ResponseException</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;BadRequest&quot;</span><span class="p">,</span> <span class="s2">&quot;Forbidden&quot;</span><span class="p">,</span> <span class="s2">&quot;Unauthoritzed&quot;</span><span class="p">,</span> <span class="s2">&quot;NotFound&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;RateLimitExceeded&quot;</span><span class="p">,</span> <span class="s2">&quot;UnsupportedMediaType&quot;</span><span class="p">,</span> <span class="s2">&quot;get_invalid_request&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;is_invalid_request&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="BadRequest"><a class="viewcode-back" href="../../../../riotAPI.exceptions.response.html#riotAPI.exceptions.response.invalid_request.BadRequest">[docs]</a><span class="k">class</span> <span class="nc">BadRequest</span><span class="p">(</span><span class="n">ResponseException</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe que representa a exceção levantada por um erro de sintaxe presente na url.</span>
+
+<span class="sd">    Codigo erro:400.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">CODE</span> <span class="o">=</span> <span class="mi">400</span>
+    <span class="n">DESCRIPTION</span> <span class="o">=</span> <span class="s2">&quot;Esse erro indica que há um erro de sintaxe na solicitação e, portanto, a solicitação foi negada.&quot;</span> \
+                  <span class="s2">&quot; O cliente não deve continuar a fazer solicitações semelhantes sem modificar a sintaxe ou as solicitações &quot;</span> \
+                  <span class="s2">&quot;que estão sendo feitas.&quot;</span>
+
+    <span class="n">COMMOM_REASONS</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;Um parâmetro fornecido está no formato incorreto (por exemplo, uma string em vez de um inteiro).&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Um parâmetro fornecido é inválido (por exemplo, beginTime e startTime especificam um intervalo de tempo muito grande).&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Um parâmetro obrigatório não foi fornecido.&quot;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Unauthoritzed"><a class="viewcode-back" href="../../../../riotAPI.exceptions.response.html#riotAPI.exceptions.response.invalid_request.Unauthoritzed">[docs]</a><span class="k">class</span> <span class="nc">Unauthoritzed</span><span class="p">(</span><span class="n">ResponseException</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe que representa a exceção levantada pela falta de uma chave de autenticação na requisição.</span>
+
+<span class="sd">    Codigo erro:401.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">CODE</span> <span class="o">=</span> <span class="mi">401</span>
+    <span class="n">DESCRIPTION</span> <span class="o">=</span> <span class="s2">&quot;Esse erro indica que a solicitação sendo feita não continha as credenciais de autenticação necessárias (por exemplo, uma chave de API) e, &quot;</span> \
+                  <span class="s2">&quot;portanto, foi negado o acesso ao cliente. O cliente não deve continuar a fazer solicitações semelhantes sem incluir uma chave de API na solicitação.&quot;</span>
+
+    <span class="n">COMMOM_REASONS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Uma chave de API não foi incluída na solicitação.&quot;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Forbidden"><a class="viewcode-back" href="../../../../riotAPI.exceptions.response.html#riotAPI.exceptions.response.invalid_request.Forbidden">[docs]</a><span class="k">class</span> <span class="nc">Forbidden</span><span class="p">(</span><span class="n">ResponseException</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe que representa a exceção levantada pela falta de uma chave de autenticação valida na requisição.</span>
+
+<span class="sd">    Codigo erro:403.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">CODE</span> <span class="o">=</span> <span class="mi">403</span>
+    <span class="n">DESCRIPTION</span> <span class="o">=</span> <span class="s2">&quot;Esse erro indica que o servidor entendeu a solicitação, mas se recusou a autorizá-la. Não há distinção entre um caminho inválido ou credenciais&quot;</span> \
+                  <span class="s2">&quot;de autorização inválidas (por exemplo, uma chave de API). O cliente não deve continuar fazendo solicitações semelhantes&quot;</span>
+
+    <span class="n">COMMOM_REASONS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Uma chave de API inválida foi fornecida com a solicitação da API.&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;Uma chave de API na lista negra foi fornecida com a solicitação da API.&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;A solicitação da API era para um caminho incorreto ou sem suporte.&quot;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="NotFound"><a class="viewcode-back" href="../../../../riotAPI.exceptions.response.html#riotAPI.exceptions.response.invalid_request.NotFound">[docs]</a><span class="k">class</span> <span class="nc">NotFound</span><span class="p">(</span><span class="n">ResponseException</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe que representa a exceção levantada porque o servidor não conseguiu encontrar uma correspondência para a</span>
+<span class="sd">    requisição feita.</span>
+
+<span class="sd">    Codigo erro:404.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">CODE</span> <span class="o">=</span> <span class="mi">404</span>
+    <span class="n">DESCRIPTION</span> <span class="o">=</span> <span class="s2">&quot;Esse erro indica que o servidor não encontrou uma correspondência para a solicitação da API que está sendo feita. &quot;</span> \
+                  <span class="s2">&quot;Nenhuma indicação é dada se a condição é temporária ou permanente.&quot;</span>
+
+    <span class="n">COMMOM_REASONS</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;O ID ou nome fornecido não corresponde a nenhum recurso existente (por exemplo, não há invocador correspondente ao ID especificado).&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Não há recursos que correspondam aos parâmetros especificados.&quot;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="UnsupportedMediaType"><a class="viewcode-back" href="../../../../riotAPI.exceptions.response.html#riotAPI.exceptions.response.invalid_request.UnsupportedMediaType">[docs]</a><span class="k">class</span> <span class="nc">UnsupportedMediaType</span><span class="p">(</span><span class="n">ResponseException</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe que representa a exceção levantada por uma definição incorreta do cabeçalho Content-Type.</span>
+
+<span class="sd">    Codigo erro:415.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">CODE</span> <span class="o">=</span> <span class="mi">415</span>
+    <span class="n">DESCRIPTION</span> <span class="o">=</span> <span class="s2">&quot;Esse erro indica que o servidor está se recusando a atender a solicitação porque o corpo da solicitação está em um formato que não é suportado.&quot;</span>
+
+    <span class="n">COMMOM_REASONS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;O cabeçalho Content-Type não foi definido adequadamente.&quot;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="RateLimitExceeded"><a class="viewcode-back" href="../../../../riotAPI.exceptions.response.html#riotAPI.exceptions.response.invalid_request.RateLimitExceeded">[docs]</a><span class="k">class</span> <span class="nc">RateLimitExceeded</span><span class="p">(</span><span class="n">ResponseException</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe que representa a exceção levantada porque se atingiu o limite de requisições feita a um metodo</span>
+<span class="sd">    com uma api key.</span>
+
+<span class="sd">    Codigo erro:429.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">CODE</span> <span class="o">=</span> <span class="mi">429</span>
+    <span class="n">DESCRIPTION</span> <span class="o">=</span> <span class="s2">&quot;Esse erro indica que o aplicativo esgotou seu número máximo de chamadas de API permitidas por uma determinada duração.&quot;</span> \
+                  <span class="s2">&quot; Se o cliente receber uma resposta de Taxa Limite Excedida, o cliente deverá processar essa resposta e interromper &quot;</span> \
+                  <span class="s2">&quot;futuras chamadas da API pela duração, em segundos, indicada pelo cabeçalho Retry-After. Aplicativos que violam esta &quot;</span> \
+                  <span class="s2">&quot;política podem ter seu acesso desativado para preservar a integridade da API. Consulte a documentação de &quot;</span> \
+                  <span class="s2">&quot;limitação de taxa,, em https://developer.riotgames.com/rate-limiting.html, para obter mais informações sobre como determinar se você tem uma taxa limitada e como evitá-la.&quot;</span>
+
+    <span class="n">COMMOM_REASONS</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;Chamadas de API não regulamentadas,ver o cabesalho de resposta e os logs de requisições para monitorar &quot;</span>
+        <span class="s2">&quot;a atividade da sua chave API&quot;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="is_invalid_request"><a class="viewcode-back" href="../../../../riotAPI.exceptions.response.html#riotAPI.exceptions.response.invalid_request.is_invalid_request">[docs]</a><span class="k">def</span> <span class="nf">is_invalid_request</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Verifica se um codigo representa um erro de requisição.</span>
+
+<span class="sd">    :param code: codigo de resposta do servidor.</span>
+<span class="sd">    :return: boolean</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">exception</span> <span class="ow">in</span> <span class="n">__invalid_request_classes__</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">exception</span><span class="o">.</span><span class="n">CODE</span> <span class="o">==</span> <span class="n">code</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="get_invalid_request"><a class="viewcode-back" href="../../../../riotAPI.exceptions.response.html#riotAPI.exceptions.response.invalid_request.get_invalid_request">[docs]</a><span class="k">def</span> <span class="nf">get_invalid_request</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna a classe do erro correspondente ao codigo passado se ele</span>
+<span class="sd">    for ele for caracterizado como um erro do requisição, caso contrario</span>
+<span class="sd">    vai ser lançado uma exeção.</span>
+
+<span class="sd">    :param code: codigo do erro</span>
+<span class="sd">    :return: codigo de resposta do servidor.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">exception</span> <span class="ow">in</span> <span class="n">__invalid_request_classes__</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">exception</span><span class="o">.</span><span class="n">CODE</span> <span class="o">==</span> <span class="n">code</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">exception</span>
+
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;code </span><span class="si">{0}</span><span class="s2"> not found as invalid request&quot;</span><span class="p">)</span></div>
+
+
+<span class="n">__invalid_request_classes__</span> <span class="o">=</span> <span class="p">[</span><span class="n">BadRequest</span><span class="p">,</span> <span class="n">NotFound</span><span class="p">,</span> <span class="n">Forbidden</span><span class="p">,</span> <span class="n">RateLimitExceeded</span><span class="p">,</span>
+                               <span class="n">UnsupportedMediaType</span><span class="p">,</span> <span class="n">Unauthoritzed</span><span class="p">]</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, jadson.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
