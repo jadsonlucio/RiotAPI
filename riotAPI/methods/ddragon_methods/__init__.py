@@ -6,5 +6,6 @@ from . import version
 from .version import *
 
 Champions = Champions()
+ChampionSplashArt = ChampionSplashArt()
 
-__all__ = ["Champions"]
+__all__ = ["Champions","ChampionSplashArt"]

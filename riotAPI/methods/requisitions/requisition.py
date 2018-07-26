@@ -1,4 +1,6 @@
 import requests
+from PIL import Image
+from io import BytesIO
 from time import ctime
 
 __all__ = ["Requisition"]
@@ -37,7 +39,7 @@ class Requisition():
         if (self.__response_data_type == "json"):
             return self.__request_json(url, params, hearders)
         elif (self.__response_data_type == "image"):
-            return self.__request_image()
+            return self.__request_image(url, params, hearders)
         else:
             raise Exception("request data type {0} doesn'n exist".format(self.__response_data_type))
 
@@ -64,15 +66,17 @@ class Requisition():
         if (self._is_valid_response(response)):
             return response.json()
 
-    def __request_image(self):
+    def __request_image(self, url, params, headers):
         """
         Faz uma requisição atravez do metodo get com o auxilio da biblioteca requests
         e retorna a imagem contida na pagina caso não ocorra nenhum erro.
 
-        :return: Image
+        :return: PIL Image
         """
 
-        pass
+        response = self.get(url, params, headers=headers)
+        if (self._is_valid_response(response)):
+            return Image.open(BytesIO(response.content))
 
     def _is_valid_response(self, response):
         """
@@ -83,3 +87,11 @@ class Requisition():
         :return: boolean
         """
         raise NotImplementedError
+
+    @property
+    def response_data_type(self):
+        return self.__response_data_type
+
+    @response_data_type.getter
+    def response_data_type(self):
+        return self.__response_data_type

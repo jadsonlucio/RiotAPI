@@ -15,7 +15,7 @@ from .api_methods import *
 from . import ddragon_methods
 from .ddragon_methods import *
 
-__ddragon_methods__ = ["Champions", "ChampionByName"]
+__ddragon_methods__ = ["Champions", "ChampionByName","ChampionSplashArt"]
 __riotAPI_methods__ = ["SummonerById", "SummonerByName", "SummonerByAccountId", "MatchById",
                        "MatchListByAccountId"]
 

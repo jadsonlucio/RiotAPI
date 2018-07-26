@@ -52,10 +52,10 @@ class Ddragon_Method(Method):
         path = set_abs_path(path)
 
         if(isfile(path)):
-            data=read_file(path,"json")
+            data=read_file(path,self.requisition.response_data_type)
         elif(self.path_attributes.validate(path_params)):
-            data = self.requisition(url, headers=headers)
-            create_file(path,data)
+            data = self.requisition(url, hearders=headers)
+            create_file(path,data,self.requisition.response_data_type)
 
         return data
 
