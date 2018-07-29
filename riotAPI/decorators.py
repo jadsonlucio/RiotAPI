@@ -1,5 +1,6 @@
-from time import ctime
+from time import sleep
 from .exceptions.response import RateLimitExceeded
+from .exceptions.max_requests import MaxRequestAchieved
 
 
 def api_method(api_method_func):
@@ -9,8 +10,13 @@ def api_method(api_method_func):
                 region = riotAPI.region
 
             return api_method_func(riotAPI, id, region=region, **kwargs)
-        except RateLimitExceeded as e:
+        except MaxRequestAchieved as e:
             riotAPI.api_key_index = (riotAPI.api_key_index + 1) % riotAPI.api_keys_size
+            return wrapper(riotAPI, id, region, **kwargs)
+        except RateLimitExceeded as e:
+            print("Você atingiu o limite de requisiçõespor favor espere ate que o metodo tenha resetado")
+            sleep(e.headers_response["Retry-After"])
+            return wrapper(riotAPI, id, region, **kwargs)
 
     return wrapper
 

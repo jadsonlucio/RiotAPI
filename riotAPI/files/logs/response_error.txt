@@ -40,3 +40,66 @@ url_requisitada:https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/
 cabecalho_requisitado:{'Origin': 'https://developer.riotgames.com', 'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8', 'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36', 'X-Riot-Token': 'RGAPI-942588c2-ee3d-494d-a408-0597879f7cdc'}                 
 parametros_requisitados:{}
 cabecalho_resposta:{'Content-Type': 'application/json;charset=utf-8', 'Date': 'Tue, 24 Jul 2018  12:00:50 GMT', 'Content-Length': '52', 'Connection': 'keep-alive'}
+[2018-07-29 01:41:44.223233]
+Codigo do erro:404
+Data da requisição:
+url_requisitada:https://br1.api.riotgames.com/lol/match/v3/matchlists/by-account/32217
+cabecalho_requisitado:{'Origin': 'https://developer.riotgames.com', 'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8', 'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36', 'X-Riot-Token': 'RGAPI-2f9596b4-6173-4925-95c8-5f73d0777eac'}                 
+parametros_requisitados:{'beginIndex': None, 'endIndex': None, 'beginTime': None, 'endTime': None, 'queue': None, 'season': None}
+cabecalho_resposta:{'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Content-Type,Authorization,Region,Cookie', 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS', 'Cache-Control': 'must-revalidate,no-cache,no-store', 'CF-RAY': '441cea327a6192fa-SJC', 'Content-Encoding': 'gzip', 'Content-Type': 'application/json;charset=utf-8', 'Date': 'Sun, 29 Jul 2018 04:41:44 GMT', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'X-App-Rate-Limit': '20:1,100:120', 'X-App-Rate-Limit-Count': '1:1,42:120', 'X-Method-Rate-Limit': '1000:10', 'X-Method-Rate-Limit-Count': '1:10', 'transfer-encoding': 'chunked', 'Connection': 'keep-alive'}
+[2018-07-29 01:55:19.901606]
+Codigo do erro:404
+Data da requisição:
+url_requisitada:https://br1.api.riotgames.com/lol/match/v3/matchlists/by-account/47124303
+cabecalho_requisitado:{'Origin': 'https://developer.riotgames.com', 'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8', 'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36', 'X-Riot-Token': 'RGAPI-2f9596b4-6173-4925-95c8-5f73d0777eac'}                 
+parametros_requisitados:{'beginIndex': 1, 'endIndex': 10, 'beginTime': None, 'endTime': None, 'queue': None, 'season': None}
+cabecalho_resposta:{'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Content-Type,Authorization,Region,Cookie', 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS', 'Cache-Control': 'must-revalidate,no-cache,no-store', 'CF-RAY': '441cfe1c8a4a92d6-SJC', 'Content-Encoding': 'gzip', 'Content-Type': 'application/json;charset=utf-8', 'Date': 'Sun, 29 Jul 2018 04:55:19 GMT', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'X-App-Rate-Limit': '20:1,100:120', 'X-App-Rate-Limit-Count': '1:1,47:120', 'X-Method-Rate-Limit': '1000:10', 'X-Method-Rate-Limit-Count': '1:10', 'transfer-encoding': 'chunked', 'Connection': 'keep-alive'}
+[2018-07-29 01:59:02.213384]
+Codigo do erro:404
+Data da requisição:
+url_requisitada:https://br1.api.riotgames.com/lol/match/v3/matchlists/by-account/47124303
+cabecalho_requisitado:{'Origin': 'https://developer.riotgames.com', 'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8', 'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36', 'X-Riot-Token': 'RGAPI-2f9596b4-6173-4925-95c8-5f73d0777eac'}                 
+parametros_requisitados:{'beginIndex': 1, 'endIndex': 10, 'beginTime': None, 'endTime': None, 'queue': None, 'season': None}
+cabecalho_resposta:{'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Content-Type,Authorization,Region,Cookie', 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS', 'Cache-Control': 'must-revalidate,no-cache,no-store', 'CF-RAY': '441d0389ff9b6e50-SJC', 'Content-Encoding': 'gzip', 'Content-Type': 'application/json;charset=utf-8', 'Date': 'Sun, 29 Jul 2018 04:59:02 GMT', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'X-App-Rate-Limit': '20:1,100:120', 'X-App-Rate-Limit-Count': '1:1,8:120', 'X-Method-Rate-Limit': '1000:10', 'X-Method-Rate-Limit-Count': '1:10', 'Content-Length': '71', 'Connection': 'keep-alive'}
+[2018-07-29 02:03:29.392749]
+Codigo do erro:400
+Data da requisição:
+url_requisitada:https://br1.api.riotgames.com/lol/match/v3/matchlists/by-account/202440911
+cabecalho_requisitado:{'Origin': 'https://developer.riotgames.com', 'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8', 'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36', 'X-Riot-Token': 'RGAPI-2f9596b4-6173-4925-95c8-5f73d0777eac'}                 
+parametros_requisitados:{'beginIndex': 1, 'endIndex': 200, 'beginTime': None, 'endTime': None, 'queue': None, 'season': None}
+cabecalho_resposta:{'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Content-Type,Authorization,Region,Cookie', 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS', 'Cache-Control': 'must-revalidate,no-cache,no-store', 'CF-RAY': '441d0a0fdafd93b4-SJC', 'Content-Encoding': 'gzip', 'Content-Type': 'application/json;charset=utf-8', 'Date': 'Sun, 29 Jul 2018 05:03:29 GMT', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'X-App-Rate-Limit': '20:1,100:120', 'X-App-Rate-Limit-Count': '1:1,2:120', 'X-Method-Rate-Limit': '1000:10', 'X-Method-Rate-Limit-Count': '1:10', 'transfer-encoding': 'chunked', 'Connection': 'keep-alive'}
+[2018-07-29 02:04:27.693539]
+Codigo do erro:400
+Data da requisição:
+url_requisitada:https://br1.api.riotgames.com/lol/match/v3/matchlists/by-account/202440911
+cabecalho_requisitado:{'Origin': 'https://developer.riotgames.com', 'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8', 'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36', 'X-Riot-Token': 'RGAPI-2f9596b4-6173-4925-95c8-5f73d0777eac'}                 
+parametros_requisitados:{'beginIndex': 1, 'endIndex': 200, 'beginTime': None, 'endTime': None, 'queue': None, 'season': None}
+cabecalho_resposta:{'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Content-Type,Authorization,Region,Cookie', 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS', 'Cache-Control': 'must-revalidate,no-cache,no-store', 'CF-RAY': '441d0b7c0c079378-SJC', 'Content-Encoding': 'gzip', 'Content-Type': 'application/json;charset=utf-8', 'Date': 'Sun, 29 Jul 2018 05:04:27 GMT', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'X-App-Rate-Limit': '20:1,100:120', 'X-App-Rate-Limit-Count': '1:1,4:120', 'X-Method-Rate-Limit': '1000:10', 'X-Method-Rate-Limit-Count': '1:10', 'Content-Length': '68', 'Connection': 'keep-alive'}
+[2018-07-29 02:08:41.528372]
+Codigo do erro:400
+Data da requisição:
+url_requisitada:https://br1.api.riotgames.com/lol/match/v3/matchlists/by-account/202440911
+cabecalho_requisitado:{'Origin': 'https://developer.riotgames.com', 'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8', 'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36', 'X-Riot-Token': 'RGAPI-2f9596b4-6173-4925-95c8-5f73d0777eac'}                 
+parametros_requisitados:{'beginIndex': 1, 'endIndex': 200, 'beginTime': None, 'endTime': None, 'queue': None, 'season': None}
+cabecalho_resposta:{'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Content-Type,Authorization,Region,Cookie', 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS', 'Cache-Control': 'must-revalidate,no-cache,no-store', 'CF-RAY': '441d11aeadf69330-SJC', 'Content-Encoding': 'gzip', 'Content-Type': 'application/json;charset=utf-8', 'Date': 'Sun, 29 Jul 2018 05:08:41 GMT', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'X-App-Rate-Limit': '20:1,100:120', 'X-App-Rate-Limit-Count': '1:1,2:120', 'X-Method-Rate-Limit': '1000:10', 'X-Method-Rate-Limit-Count': '1:10', 'transfer-encoding': 'chunked', 'Connection': 'keep-alive'}
+[2018-07-29 02:09:17.400400]
+Codigo do erro:400
+Data da requisição:
+url_requisitada:https://br1.api.riotgames.com/lol/match/v3/matchlists/by-account/202440911
+cabecalho_requisitado:{'Origin': 'https://developer.riotgames.com', 'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8', 'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36', 'X-Riot-Token': 'RGAPI-2f9596b4-6173-4925-95c8-5f73d0777eac'}                 
+parametros_requisitados:{'beginIndex': 1, 'endIndex': 200, 'beginTime': None, 'endTime': None, 'queue': None, 'season': None}
+cabecalho_resposta:{'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Content-Type,Authorization,Region,Cookie', 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS', 'Cache-Control': 'must-revalidate,no-cache,no-store', 'CF-RAY': '441d128e38d66e50-SJC', 'Content-Encoding': 'gzip', 'Content-Type': 'application/json;charset=utf-8', 'Date': 'Sun, 29 Jul 2018 05:09:17 GMT', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'X-App-Rate-Limit': '20:1,100:120', 'X-App-Rate-Limit-Count': '1:1,4:120', 'X-Method-Rate-Limit': '1000:10', 'X-Method-Rate-Limit-Count': '1:10', 'transfer-encoding': 'chunked', 'Connection': 'keep-alive'}
+[2018-07-29 02:13:34.844408]
+Codigo do erro:404
+Data da requisição:
+url_requisitada:https://br1.api.riotgames.com/lol/match/v3/matchlists/by-account/32217
+cabecalho_requisitado:{'Origin': 'https://developer.riotgames.com', 'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8', 'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36', 'X-Riot-Token': 'RGAPI-2f9596b4-6173-4925-95c8-5f73d0777eac'}                 
+parametros_requisitados:{'beginIndex': None, 'endIndex': None, 'beginTime': None, 'endTime': None, 'queue': None, 'season': None}
+cabecalho_resposta:{'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Content-Type,Authorization,Region,Cookie', 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS', 'Cache-Control': 'must-revalidate,no-cache,no-store', 'CF-RAY': '441d18d7da43930c-SJC', 'Content-Encoding': 'gzip', 'Content-Type': 'application/json;charset=utf-8', 'Date': 'Sun, 29 Jul 2018 05:13:34 GMT', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'X-App-Rate-Limit': '20:1,100:120', 'X-App-Rate-Limit-Count': '1:1,28:120', 'X-Method-Rate-Limit': '1000:10', 'X-Method-Rate-Limit-Count': '1:10', 'Content-Length': '71', 'Connection': 'keep-alive'}
+[2018-07-29 02:18:56.016971]
+Codigo do erro:404
+Data da requisição:
+url_requisitada:https://br1.api.riotgames.com/lol/match/v3/matchlists/by-account/32217
+cabecalho_requisitado:{'Origin': 'https://developer.riotgames.com', 'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8', 'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36', 'X-Riot-Token': 'RGAPI-2f9596b4-6173-4925-95c8-5f73d0777eac'}                 
+parametros_requisitados:{'beginIndex': None, 'endIndex': None, 'beginTime': None, 'endTime': None, 'queue': None, 'season': None}
+cabecalho_resposta:{'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Content-Type,Authorization,Region,Cookie', 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS', 'Cache-Control': 'must-revalidate,no-cache,no-store', 'CF-RAY': '441d20af3efb93b4-SJC', 'Content-Encoding': 'gzip', 'Content-Type': 'application/json;charset=utf-8', 'Date': 'Sun, 29 Jul 2018 05:18:55 GMT', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'X-App-Rate-Limit': '20:1,100:120', 'X-App-Rate-Limit-Count': '2:1,4:120', 'X-Method-Rate-Limit': '1000:10', 'X-Method-Rate-Limit-Count': '1:10', 'transfer-encoding': 'chunked', 'Connection': 'keep-alive'}

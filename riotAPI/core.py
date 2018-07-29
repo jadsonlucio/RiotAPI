@@ -1,5 +1,6 @@
 from . import methods
 from . import decorators
+from . import extensions
 
 
 class RiotAPI():
@@ -29,12 +30,8 @@ class RiotAPI():
 
     # api_key
     @property
-    def api_key(self):
+    def __api_key(self):
         return self.__api_keys[self.api_key_index]
-
-    @api_key.setter
-    def api_key(self, api_key):
-        self.__api_key = api_key
 
     # Match methods
 
@@ -46,8 +43,7 @@ class RiotAPI():
         :return: Match
         """
 
-        api_key = self
-        return methods.MatchById.request(api_key=self.api_key, region=region, gameId=gameId)
+        return methods.MatchById.request(api_key=self.__api_key, region=region, gameId=gameId)
 
     @decorators.api_method
     def get_matchListByAccountId(self, accountId, beginIndex=None, endIndex=None,
@@ -64,7 +60,7 @@ class RiotAPI():
         :return:
         """
 
-        return methods.MatchListByAccountId.request(api_key=self.api_key, region=region, accountId=accountId,
+        return methods.MatchListByAccountId.request(api_key=self.__api_key, region=region, accountId=accountId,
                                                     beginIndex=beginIndex, endIndex=endIndex, beginTime=beginTime,
                                                     endTime=endTime, queue=queue, season=season)
 
@@ -78,7 +74,7 @@ class RiotAPI():
         :return: Summoner
         """
 
-        return methods.SummonerByAccountId.request(api_key=self.api_key, region=region, accountId=accountId)
+        return methods.SummonerByAccountId.request(api_key=self.__api_key, region=region, accountId=accountId)
 
     @decorators.api_method
     def get_summonerByName(self, summonerName, region=None):
@@ -88,7 +84,7 @@ class RiotAPI():
         :return: Summoner
         """
 
-        return methods.SummonerByName.request(api_key=self.api_key, region=region, summonerName=summonerName)
+        return methods.SummonerByName.request(api_key=self.__api_key, region=region, summonerName=summonerName)
 
     @decorators.api_method
     def get_summonerById(self, summonerId, region=None):
@@ -98,11 +94,11 @@ class RiotAPI():
         :return: Summoner
         """
 
-        return methods.SummonerById.request(api_key=self.api_key, region=region, summonerId=summonerId)
+        return methods.SummonerById.request(api_key=self.__api_key, region=region, summonerId=summonerId)
 
     # ddragon methods
 
-    @decorators.ddragon_method(language="pt")
+    @decorators.ddragon_method(language="pt_BR")
     def get_champions(self, patch_version=None, language=None):
         """
 

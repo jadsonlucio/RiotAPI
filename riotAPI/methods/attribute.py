@@ -68,6 +68,18 @@ class Atrribute_list(list):
 
         raise NotImplementedError
 
+    @property
+    def names(self):
+        return [obj.name for obj in self]
+
+    @property
+    def types(self):
+        return [obj.type for obj in self]
+
+    @property
+    def descriptions(self):
+        return [obj.description for obj in self]
+
     def __dict__(self):
         """
         metodo que retorna um dicionario dos nomes e

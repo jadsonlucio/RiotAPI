@@ -15,10 +15,6 @@ class Requisition():
     """
 
     def __init__(self, response_data_type):
-        self.max_requests = None
-        self.time_reset = None
-        self.count_requests = None
-
         self.__response_data_type = response_data_type
         self.requests = []
 
@@ -44,12 +40,23 @@ class Requisition():
             raise Exception("request data type {0} doesn'n exist".format(self.__response_data_type))
 
     def get(self, url, params, headers, count_attempts=0):
+        """
+        Método que faz uma requisição do tipo get a uma url.
+
+        :param url: url de requisição.
+        :param params: parametros passados pelo metodo get.
+        :param headers: cabeçalho de requisição.
+        :param count_attempts: quantidade de tentaticas da requisição.
+        :return: Response
+        """
+
         if (count_attempts < MAX_ATTEMPTS):
             try:
-                return requests.get(url, params, headers=headers)
+                request = requests.get(url, params, headers=headers)
+                return request
             except requests.exceptions.ConnectionError as e:
                 count_attempts = count_attempts + 1
-                self.get(url, params, headers, count_attempts)
+                return self.get(url, params, headers, count_attempts)
         else:
             raise Exception(
                 "O maximo de tentativas de requisição foi atingido, por favor verique sua conexão com a internet")
@@ -78,6 +85,8 @@ class Requisition():
         if (self._is_valid_response(response)):
             return Image.open(BytesIO(response.content))
 
+
+
     def _is_valid_response(self, response):
         """
         Metodo abstrato que verifica se o objeto de resposta recebido pelo
@@ -87,6 +96,7 @@ class Requisition():
         :return: boolean
         """
         raise NotImplementedError
+
 
     @property
     def response_data_type(self):

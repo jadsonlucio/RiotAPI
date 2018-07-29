@@ -1,4 +1,5 @@
-from .attribute import Query_atributes,Path_atributes
+from colorama import Fore
+from .attribute import Query_atributes, Path_atributes
 
 
 class Method():
@@ -32,7 +33,7 @@ class Method():
         self.path_attributes = Path_atributes(path_params)
         self.query_attributes = Query_atributes(query_params)
 
-        self.requisition=requisition
+        self.requisition = requisition
 
     def request(self, *args, **kwargs):
         """
@@ -57,7 +58,6 @@ class Method():
 
         raise NotImplementedError
 
-
     def __new__(cls, *args, **kwargs):
         """
         Implementação do padrão singleton em python.
@@ -72,4 +72,15 @@ class Method():
 
         return cls.__INSTANCE
 
+    def __str__(self):
+        string = self.__class__.__name__ + "("
 
+        for name, type in zip(self.path_attributes.names, self.path_attributes.types):
+            string = string + "{0}{1}:{2}{3}, ".format(Fore.RED, name, type.__name__, Fore.RESET)
+
+        for name, type in zip(self.query_attributes.names, self.query_attributes.types):
+            string = string + "{0}{1}:{2}{3}, ".format(Fore.BLUE, name, type.__name__, Fore.RESET)
+
+        string = string[:-2] + ")"
+
+        return string

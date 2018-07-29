@@ -49,7 +49,7 @@ class MatchListByAccountId(API_Method):
                     {"name": "beginIndex", "description": "", "type": int},
                     {"name": "beginTime", "description": "", "type": int},
                     {"name": "champion", "description": "", "type": list},
-                    {"name": "endIndex", "description": "", "type": list},
+                    {"name": "endIndex", "description": "", "type": int},
                     {"name": "queue", "description": "", "type": list},
                     {"name": "season", "description": "", "type": list}]
 

@@ -35,6 +35,7 @@ class Champion(Response):
         :param info: Pontuações do campeão nos quesitos de attack,defense,magic e difficulty.
         """
 
+        self.version=version
         self.enemytips = enemytips
         self.name = name
         self.title = title

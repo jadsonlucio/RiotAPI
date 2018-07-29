@@ -1,16 +1,9 @@
-import pandas as pd
 from riotAPI import RiotAPI
+from riotAPI.methods import MatchListByAccountId
+from riotAPI.extensions import crawling_match_data
 
-file=open(__file__,"rb")
-print(file.read(100))
 
-riotAPI=RiotAPI("ka","br1","pt_BR")
-champions=riotAPI.get_champions(language="pt_BR")
+riotAPI=RiotAPI("RGAPI-2f9596b4-6173-4925-95c8-5f73d0777eac","br1","pt_BR")
+summoner=riotAPI.get_summonerByName("kami")
 
-champions_dataframe=pd.DataFrame(champions.dict)
-champions_info_dataframe=pd.DataFrame(list(champions_dataframe["info"]))
-champions_dataframe=champions_dataframe.drop(columns="info")
-champions_dataframe=champions_dataframe.join(champions_info_dataframe)
-print(len(champions_dataframe.to_dict(orient="records")))
-
-#champions_dataframe.to_csv("/run/media/Panda/4E226C68226C574D/Users/pandaQ/Documents/kaggle/champions_dataset.csv",index=False,index_label=False)
+crawling_match_data(riotAPI,summoner.accountId,500)

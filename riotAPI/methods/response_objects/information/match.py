@@ -40,7 +40,6 @@ class Match_info_list(Response_list):
         self.startIndex=startIndex
         self.endIndex=endIndex
         self.totalGames=totalGames
-        self.matches=matches
 
         super().__init__(matches)
 
