@@ -1,0 +1,2 @@
+class MaxRequestAchieved(Exception):
+    pass
