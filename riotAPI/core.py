@@ -60,7 +60,22 @@ class RiotAPI():
         :return:
         """
 
-        return methods.MatchListByAccountId.request(api_key=self.__api_key, region=region, accountId=accountId,
+        match_info_list = []
+
+        if (beginIndex != None and endIndex != None):
+            for cont in range(0, int((endIndex - beginIndex) / 100)):
+                match_info_list = match_info_list + methods.MatchListByAccountId.request(api_key=self.__api_key,
+                                                                                         region=region,
+                                                                                         accountId=accountId,
+                                                                                         beginIndex=beginIndex,
+                                                                                         endIndex=beginIndex+100,
+                                                                                         beginTime=beginTime,
+                                                                                         endTime=endTime, queue=queue,
+                                                                                         season=season)
+
+                beginIndex=beginIndex+100
+
+        return match_info_list+methods.MatchListByAccountId.request(api_key=self.__api_key, region=region, accountId=accountId,
                                                     beginIndex=beginIndex, endIndex=endIndex, beginTime=beginTime,
                                                     endTime=endTime, queue=queue, season=season)
 

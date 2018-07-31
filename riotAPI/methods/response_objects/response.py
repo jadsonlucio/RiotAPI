@@ -1,4 +1,6 @@
 import numpy as np
+import pandas as pd
+
 
 class Response(object):
     """
@@ -41,7 +43,11 @@ class Response(object):
             if (item in dict_vars):
                 return dict_vars[item]
             else:
-                raise AttributeError("{0} object has no attribute {1}".format(self.__class__.__name__,item))
+                raise AttributeError("{0} object has no attribute {1}".format(self.__class__.__name__, item))
+
+    def __add__(self, other):
+        if (isinstance(other, self.__class__)):
+            pass
 
     @property
     def dict(self):
@@ -49,7 +55,7 @@ class Response(object):
         for key, obj in vars(self).items():
             if (isinstance(obj, Response)):
                 dict = {**dict, **obj.dict}
-            elif(obj!=None):
+            elif (obj != None):
                 dict[key] = obj
 
         return dict
@@ -109,14 +115,32 @@ class Response_list(list):
             for obj in self:
                 attribute_list.append(obj[item])
             return np.array(attribute_list)
-    
+
     @property
     def dict(self):
+        """
+        converte os atributos dos elementos do Response_list que são do tipo
+        response em dicionario e os adiciona em um array que é retornado.
+
+        :return: array
+        """
         dict_array = [obj.dict for obj in self]
         dict_array = np.array(dict_array).ravel()
         dict_array = [{**dict, **vars(self)} for dict in dict_array]
 
         return dict_array
+
+    @property
+    def dataframe(self):
+        """
+        Converte o array de dicionarios do metodo dict em
+        um pandas dataframe.
+
+        :return: dataframe
+        """
+        array_dict = list(np.array(self.dict).ravel())
+
+        return pd.DataFrame(array_dict)
 
 
 def hasattribute(obj, name):

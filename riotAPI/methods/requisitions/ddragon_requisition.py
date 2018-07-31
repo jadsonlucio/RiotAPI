@@ -20,3 +20,10 @@ class Requisition_Ddragon(Requisition):
 
         if (status_code == 200):
             return True
+
+
+    def _process_invalid_response(self,request, response):
+        pass
+
+    def _process_valid_response(self, request, response):
+        pass

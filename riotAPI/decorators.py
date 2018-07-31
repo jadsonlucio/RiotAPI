@@ -14,8 +14,8 @@ def api_method(api_method_func):
             riotAPI.api_key_index = (riotAPI.api_key_index + 1) % riotAPI.api_keys_size
             return wrapper(riotAPI, id, region, **kwargs)
         except RateLimitExceeded as e:
-            print("Você atingiu o limite de requisiçõespor favor espere ate que o metodo tenha resetado")
-            sleep(e.headers_response["Retry-After"])
+            print("Você atingiu o limite de requisições, por favor espere ate que o metodo tenha resetado")
+            sleep(int(e.headers_response["Retry-After"]))
             return wrapper(riotAPI, id, region, **kwargs)
 
     return wrapper

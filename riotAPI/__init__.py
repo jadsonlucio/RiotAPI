@@ -1,5 +1,9 @@
 from . import core
 from .core import RiotAPI
+from . import exceptions
+from . import methods
+from . import libs
+
 
 __all__=["RiotAPI"]
 

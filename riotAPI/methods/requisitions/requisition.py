@@ -2,9 +2,12 @@ import requests
 from PIL import Image
 from io import BytesIO
 from time import ctime
+from colorama import Fore
 
 __all__ = ["Requisition"]
 MAX_ATTEMPTS = 20
+CONNECT_TIME_OUT=10
+READ_TIME_OUT=10
 
 
 class Requisition():
@@ -52,9 +55,10 @@ class Requisition():
 
         if (count_attempts < MAX_ATTEMPTS):
             try:
-                request = requests.get(url, params, headers=headers)
+                request = requests.get(url, params, headers=headers, timeout=(CONNECT_TIME_OUT,READ_TIME_OUT))
                 return request
-            except requests.exceptions.ConnectionError as e:
+            except (requests.exceptions.ConnectionError,requests.exceptions.ReadTimeout) as e:
+                print("{0}Requisição mal sucessedida, tentando novamente{1}".format(Fore.RED, Fore.RESET))
                 count_attempts = count_attempts + 1
                 return self.get(url, params, headers, count_attempts)
         else:
@@ -85,8 +89,6 @@ class Requisition():
         if (self._is_valid_response(response)):
             return Image.open(BytesIO(response.content))
 
-
-
     def _is_valid_response(self, response):
         """
         Metodo abstrato que verifica se o objeto de resposta recebido pelo
@@ -97,6 +99,25 @@ class Requisition():
         """
         raise NotImplementedError
 
+    def _process_invalid_response(self, request, response):
+        """
+        Método que trata de uma resposta invalida à requisição feita.
+
+        :param request: dicionarios contendo os atributos passados para fazer a requisição.
+        :param response: objeto retornado atravez do metodo get contendo os dados de resposta a requisição.
+        :return: None
+        """
+        raise NotImplementedError
+
+    def _process_valid_response(self, request, response):
+        """
+        Método que trata de uma resposta valida à requisição feita.
+
+        :param request: dicionarios contendo os atributos passados para fazer a requisição
+        :param response: objeto retornado atravez do metodo get contendo os dados de resposta a requisição.
+        :return: None
+        """
+        raise NotImplementedError
 
     @property
     def response_data_type(self):
