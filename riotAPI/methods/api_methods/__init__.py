@@ -7,8 +7,10 @@ from .summoner import *
 
 MatchById = MatchById()
 MatchListByAccountId = MatchListByAccountId()
+TimeLinesByMatchId = TimeLinesByMatchId()
 SummonerById = SummonerById()
 SummonerByName = SummonerByName()
 SummonerByAccountId = SummonerByAccountId()
 
-__all__ = ["MatchById", "MatchListByAccountId", "SummonerById", "SummonerByName", "SummonerByAccountId"]
+
+__all__ = ["MatchById", "TimeLinesByMatchId", "MatchListByAccountId", "SummonerById", "SummonerByName", "SummonerByAccountId"]

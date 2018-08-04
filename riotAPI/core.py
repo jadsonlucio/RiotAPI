@@ -46,6 +46,16 @@ class RiotAPI():
         return methods.MatchById.request(api_key=self.__api_key, region=region, gameId=gameId)
 
     @decorators.api_method
+    def get_matchTimeline(self, gameId, region=None):
+        """
+
+        :param gameId:
+        :return: dict
+        """
+
+        return methods.TimeLinesByMatchId.request(api_key=self.__api_key,region=region,gameId=gameId)
+
+    @decorators.api_method
     def get_matchListByAccountId(self, accountId, beginIndex=None, endIndex=None,
                                  beginTime=None, endTime=None, queue=None, season=None, region=None):
         """
@@ -57,25 +67,10 @@ class RiotAPI():
         :param endTime:
         :param queue:
         :param season:
-        :return:
+        :return: Match_info_list
         """
 
-        match_info_list = []
-
-        if (beginIndex != None and endIndex != None):
-            for cont in range(0, int((endIndex - beginIndex) / 100)):
-                match_info_list = match_info_list + methods.MatchListByAccountId.request(api_key=self.__api_key,
-                                                                                         region=region,
-                                                                                         accountId=accountId,
-                                                                                         beginIndex=beginIndex,
-                                                                                         endIndex=beginIndex+100,
-                                                                                         beginTime=beginTime,
-                                                                                         endTime=endTime, queue=queue,
-                                                                                         season=season)
-
-                beginIndex=beginIndex+100
-
-        return match_info_list+methods.MatchListByAccountId.request(api_key=self.__api_key, region=region, accountId=accountId,
+        return methods.MatchListByAccountId.request(api_key=self.__api_key, region=region, accountId=accountId,
                                                     beginIndex=beginIndex, endIndex=endIndex, beginTime=beginTime,
                                                     endTime=endTime, queue=queue, season=season)
 

@@ -17,6 +17,6 @@ from .ddragon_methods import *
 
 __ddragon_methods__ = ["Champions", "ChampionByName","ChampionSplashArt"]
 __riotAPI_methods__ = ["SummonerById", "SummonerByName", "SummonerByAccountId", "MatchById",
-                       "MatchListByAccountId"]
+                       "TimeLinesByMatchId","MatchListByAccountId"]
 
 __all__ = __ddragon_methods__ + __riotAPI_methods__
