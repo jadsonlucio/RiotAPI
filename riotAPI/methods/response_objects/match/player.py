@@ -16,6 +16,8 @@ class Player(Response):
         self.spell1Id = spell1Id
         self.spell2Id = spell2Id
         self.highestAchievedSeasonTier = highestAchievedSeasonTier
+        self.lane = timeline.pop("lane")
+        self.role = timeline.pop("role")
 
         self.stats = Player_stats(stats)
         self.timeline = Player_timeline(timeline)
@@ -44,4 +46,4 @@ class Player_stats(Response):
 
 class Player_timeline(Response):
     def __init__(self, timeline):
-        super().__init__()
+        super().__init__(**timeline)
