@@ -49,6 +49,19 @@ class Response(object):
         if (isinstance(other, self.__class__)):
             pass
 
+    def __copy__(self):
+        """
+        cria uma copia do objeto.
+
+        :return: Response_list
+        """
+
+        reponse=object.__new__(self.__class__)
+        for key,value in vars(self).items():
+            reponse.__setattr__(key,value)
+
+        return reponse
+
     @property
     def dict(self):
         dict = {}
@@ -59,7 +72,6 @@ class Response(object):
                 dict[key] = obj
 
         return dict
-
 
 class Response_list(list):
     """
@@ -104,6 +116,13 @@ class Response_list(list):
     def __getitem__(self, item):
         if (isinstance(item, str)):
             return self.__getattr__(item)
+        elif(isinstance(item,list) or isinstance(item,np.ndarray)):
+            if(len(item)==len(self)):
+                query=[obj for bool,obj in zip(item,self) if bool]
+                if(len(query)==1):
+                    return query[0]
+                else:
+                    return query
         else:
             return list.__getitem__(self, item)
 
@@ -115,6 +134,22 @@ class Response_list(list):
             for obj in self:
                 attribute_list.append(obj[item])
             return np.array(attribute_list)
+
+    def __copy__(self):
+        """
+        cria uma copia do objeto.
+
+        :return: Response_list
+        """
+
+        reponse=self.__class__.__new__(self.__class__)
+        for key,value in vars(self).items():
+            reponse.__setattr__(key,value)
+
+        for obj in self:
+            reponse.append(obj.__copy__())
+
+        return reponse
 
     @property
     def dict(self):

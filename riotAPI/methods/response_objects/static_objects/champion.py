@@ -35,7 +35,7 @@ class Champion(Response):
         :param info: Pontuações do campeão nos quesitos de attack,defense,magic e difficulty.
         """
 
-        self.version=version
+        self.version = version
         self.enemytips = enemytips
         self.name = name
         self.title = title
@@ -50,8 +50,8 @@ class Champion(Response):
         self.id = id
         self.blurb = blurb
         self.spells = spells
-        self.info = info
 
+        self.info = Champion_info(**info)
         self.stats = Champion_stats(stats)
 
         super().__init__()
@@ -60,6 +60,16 @@ class Champion(Response):
 class Champion_stats(Response):
     def __init__(self, stats):
         super().__init__(**stats)
+
+
+class Champion_info(Response):
+    def __init__(self, attack, defense, difficulty, magic):
+        self.attack = attack
+        self.defense = defense
+        self.difficulty = difficulty
+        self.magic = magic
+
+        Response.__init__(self)
 
 
 class Champion_list(Response_list):

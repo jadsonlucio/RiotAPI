@@ -16,16 +16,21 @@ def get_matchListByAccountId_v2(riotAPI, accountId, beginIndex=None, endIndex=No
     :return: match_info_list
     """
 
-    match_info_list = []
-
-    filters={
-        "beginIndex":beginIndex,"endIndex":endIndex,
-        "beginTime":beginTime,"endTime":endTime,"queue":queue,
-        "season":season,"region":region
+    list = []
+    filters = {
+        "beginIndex": beginIndex, "endIndex": endIndex,
+        "beginTime": beginTime, "endTime": endTime, "queue": queue,
+        "season": season, "region": region
     }
 
     if (beginIndex != None and endIndex != None):
-        for cont in range(0, int((endIndex - beginIndex) / 100)):
-            match_info_list = match_info_list + riotAPI.get_matchListByAccountId(accountId=accountId,**filters)
+        count_matchs = endIndex - beginIndex
+        while (count_matchs > 0):
+            filters["endIndex"] = filters["beginIndex"] + 100 if count_matchs >= 100 else count_matchs
+            list.append(riotAPI.get_matchListByAccountId(accountId, **filters))
+            filters["beginIndex"] = filters["endIndex"]
+            count_matchs = count_matchs - 100
+    else:
+        list = riotAPI.get_matchListByAccountId(accountId, **filters)
 
-    return match_info_list+riotAPI.get_matchListByAccountId(accountId,**filters)
+    return list

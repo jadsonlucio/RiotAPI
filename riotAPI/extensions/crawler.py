@@ -3,7 +3,7 @@ import pandas as pd
 from .methods import get_matchListByAccountId_v2
 from ..exceptions.response import NotFound
 
-MAX_MATCHS_PLAYER = 600
+MAX_MATCHS_PLAYER = 200
 
 
 def crawling_match_data(riotAPI, accountId, max_matchs, save=True, save_after=1000, save_path="", **filters):
@@ -30,6 +30,7 @@ def crawling_match_data(riotAPI, accountId, max_matchs, save=True, save_after=10
     while (len(match_list) < max_matchs):
         try:
             match_info_list = get_matchListByAccountId_v2(riotAPI, accountid_list[accountid_list_index], **filters)
+
             for match_info in match_info_list:
                 matchId = match_info.gameId
                 if (matchId not in matchid_list):

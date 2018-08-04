@@ -1,5 +1,11 @@
 #ignora todos os arquivos compilados do python
+
 *.pyc
 
+
 #ignora o arquivo da ide pycharm
+
 .idea/
+
+#ignora os arquivos de testes
+testes/
