@@ -67,7 +67,7 @@ class Requisition_API(Requisition):
         status_code = response.status_code
         request = self.requests[-1]
         headers_response = response.headers
-
+        
         if ("X-Method-Rate-Limit" in headers_response):
             self.method_rate_limit, self.method_time_reset = [int(value) for value in
                                                               headers_response["X-Method-Rate-Limit"].split(":")]
@@ -107,7 +107,7 @@ class Requisition_API(Requisition):
                                                                         self.app_time_reset):
             if (app_rate_limit_count == app_rate_limit - 1):
                 dict = self._add_blocked_api_key(headers["X-Riot-Token"], "app", app_time_reset)
-                MaxRequestAchieved(dict)
+                raise MaxRequestAchieved(dict)
 
         if (self.method_rate_limit_count == self.method_rate_limit - 1):
             dict = self._add_blocked_api_key(headers["X-Riot-Token"], "method", self.method_time_reset)
