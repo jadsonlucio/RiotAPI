@@ -1,14 +1,18 @@
+import os 
+import json
 import pandas as pd
 
 from .methods import get_matchListByAccountId_v2
 from ..exceptions.response import NotFound
+from ..constants import FILE_PATH
 
 MAX_MATCHS_PLAYER = 200
 
 
-def crawling_match_data(riotAPI, accountId, max_matchs, save=True, save_after=1000, save_path="", **filters):
+def crawling_match_data(riotAPI, accountId, max_matchs, save=True, save_after=1000, save_path="", 
+                        verbose=False, elo="gold", **filters):
     """
-    Pega partidas de verios jogadores diferentes.
+    Pega partidas de varios jogadores diferentes.
 
     :param riotAPI: RiotAPI object
     :param accountId: id da conta do jogador que vai ser utilizado para pegar as informações dos outros jogadores
@@ -27,10 +31,29 @@ def crawling_match_data(riotAPI, accountId, max_matchs, save=True, save_after=10
     accountid_list.append(accountId)
     accountid_list_index = 0
 
+    region = riotAPI.region
+    cache_path = FILE_PATH+"cache/extensions/{0}_{1}.json".format(region,elo)
+
+    if os.path.isfile(cache_path):
+        print("entrou2")
+        with open(cache_path,"r") as fp:
+            loaded_dict = json.load(fp)
+            accountid_list = loaded_dict["accountid_list"]
+            accountid_list_index = loaded_dict["accountid_list_index"]
+            matchid_list = loaded_dict["matchid_list"]
+            batch_index = loaded_dict["batch_index"]
+            
+
+        os.remove(cache_path)
+
+    print(accountid_list_index)
+    print(accountid_list[accountid_list_index])
+
     while (len(match_list) < max_matchs):
+        print("teste")
         try:
             match_info_list = get_matchListByAccountId_v2(riotAPI, accountid_list[accountid_list_index], **filters)
-
+            print("teste2")
             for match_info in match_info_list:
                 matchId = match_info.gameId
                 if (matchId not in matchid_list):
@@ -43,22 +66,43 @@ def crawling_match_data(riotAPI, accountId, max_matchs, save=True, save_after=10
                             accountid_list.append(int(accountId))
 
                     if (save and len(match_list) % save_after == 0):
-                        match_list_dataframes = [match.dataframe for match in
-                                                 match_list[batch_index * save_after:(batch_index + 1) * save_after]]
-                        match_list_dataframe = pd.concat(match_list_dataframes, ignore_index=True)
-                        match_list_dataframe.to_csv("{0}/dataframe_{1}.csv".format(save_path, batch_index), index=False,
-                                                    index_label=False)
+                        save_matchlist_batch(save_path, save_after, match_list, batch_index)
                         batch_index = batch_index + 1
 
-                if (len(match_list) >= max_matchs):
+                if len(matchid_list) >= max_matchs:
                     break
+                if(verbose and len(matchid_list)%verbose == 0):
+                    print("Número de partidas coletadas:{0}".format(len(matchid_list)))
 
-                print("Número de partidas coletadas:{0}".format(len(matchid_list)))
         except NotFound as e:
             pass
         except Exception as e:
             print(str(e))
+            save_cache(cache_path, accountid_list,accountid_list_index, 
+                       matchid_list, batch_index)
+            continue
+
+
 
         accountid_list_index = accountid_list_index + 1
 
     return match_list
+
+
+def save_cache(cache_path ,accountid_list, accountid_list_index, matchid_list, batch_index):
+    dict_to_save = {
+        "accountid_list":accountid_list,
+        "accountid_list_index":accountid_list_index,
+        "matchid_list":matchid_list,
+        "batch_index":batch_index
+    }
+
+    with open(cache_path,"w+") as fp:
+        json.dump(dict_to_save, fp)
+
+
+def save_matchlist_batch(save_path, save_after, match_list , batch_index):
+    match_list_dataframes = [match.dataframe for match in match_list[batch_index * save_after:]]
+    match_list_dataframe = pd.concat(match_list_dataframes, ignore_index=True)
+    match_list_dataframe.to_csv("{0}/dataframe_{1}.csv".format(save_path, batch_index), index=False,
+                                index_label=False)

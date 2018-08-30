@@ -9,7 +9,7 @@ class Player(Response):
     """
 
     def __init__(self, participantId, teamId, championId, spell1Id,
-                 spell2Id, highestAchievedSeasonTier, stats, timeline, participantIdentitie):
+                 spell2Id, highestAchievedSeasonTier, stats, timeline, participantIdentitie,**kwargs):
         self.particiapantId = participantId
         self.teamId = teamId
         self.championId = championId
