@@ -35,7 +35,6 @@ def crawling_match_data(riotAPI, accountId, max_matchs, save=True, save_after=10
     cache_path = FILE_PATH+"cache/extensions/{0}_{1}.json".format(region,elo)
 
     if os.path.isfile(cache_path):
-        print("entrou2")
         with open(cache_path,"r") as fp:
             loaded_dict = json.load(fp)
             accountid_list = loaded_dict["accountid_list"]
@@ -46,14 +45,9 @@ def crawling_match_data(riotAPI, accountId, max_matchs, save=True, save_after=10
 
         os.remove(cache_path)
 
-    print(accountid_list_index)
-    print(accountid_list[accountid_list_index])
-
     while (len(match_list) < max_matchs):
-        print("teste")
         try:
             match_info_list = get_matchListByAccountId_v2(riotAPI, accountid_list[accountid_list_index], **filters)
-            print("teste2")
             for match_info in match_info_list:
                 matchId = match_info.gameId
                 if (matchId not in matchid_list):
