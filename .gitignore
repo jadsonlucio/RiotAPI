@@ -3,9 +3,10 @@
 *.pyc
 
 
-#ignora o arquivo da ide pycharm
+#ignora o arquivo das ides pycharm e vscode
 
 .idea/
+.vscode/
 
 #ignora os arquivos de testes
 testes/
