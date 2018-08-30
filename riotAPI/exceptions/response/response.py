@@ -1,4 +1,5 @@
 from datetime import datetime
+from ...constants import FILE_LOG_PATH
 
 
 class ResponseException(Exception):
@@ -10,7 +11,7 @@ class ResponseException(Exception):
     CODE = None
     DESCRIPTION = None
     COMMOM_REASONS = None
-    FILE_LOG_PATH = "riotAPI/files/logs/response_error.txt"
+    RESPONSE_LOG_PATH = FILE_LOG_PATH+"response_error.txt"
 
     def __init__(self, url_request, headers_request, headers_response, query_params):
         """
@@ -57,5 +58,5 @@ class ResponseException(Exception):
                                                                                  self.query_params,
                                                                                  self.headers_response)
 
-        file = open(self.FILE_LOG_PATH, "a")
+        file = open(self.RESPONSE_LOG_PATH, "a")
         file.writelines(log_msg)
