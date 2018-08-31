@@ -1,0 +1,7 @@
+[2018-08-31 09:55:52.431744]
+Codigo do erro:403
+Data da requisição:
+url_requisitada:https://kr.api.riotgames.com/lol/summoner/v3/summoners/by-name/kami
+cabecalho_requisitado:{'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7', 'Origin': 'https://developer.riotgames.com', 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36', 'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8', 'X-Riot-Token': 'RGAPI-a49f8e78-d5ec-47c6-915b-8acf8670cf14'}                 
+parametros_requisitados:{}
+cabecalho_resposta:{'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '52', 'Connection': 'keep-alive', 'Date': 'Fri, 31 Aug 2018  12:55:54 GMT'}

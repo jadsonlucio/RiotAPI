@@ -1,5 +1,6 @@
 from . import API_Method
 from ..response_objects import Match, Match_info_list
+from .. import process_parameters
 
 BASEURL = "lol/match/"
 VERSION = "v3/"
@@ -66,6 +67,8 @@ class MatchListByAccountId(API_Method):
         :param accountId: id da conta do jogador.
         :return: Match_list
         """
+        beginTime = process_parameters.time_to_milliseconds(beginTime)
+        endTime = process_parameters.time_to_milliseconds(endTime)
 
         json = self._request(api_key, region, accountId, beginIndex=beginIndex, endIndex=endIndex,
                              beginTime=beginTime, endTime=endTime, queue=queue, season=season)
