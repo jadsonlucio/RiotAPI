@@ -60,6 +60,8 @@ def crawling_match_data(riotAPI, accountId, max_matchs, save=True, save_after=10
                             accountid_list.append(int(accountId))
 
                     if (save and len(match_list) % save_after == 0):
+                        save_cache(cache_path, accountid_list,accountid_list_index, 
+                                   matchid_list, batch_index)
                         save_matchlist_batch(save_path, save_after, match_list, batch_index)
                         batch_index = batch_index + 1
 
