@@ -9,7 +9,7 @@ from ..constants import FILE_PATH
 MAX_MATCHS_PLAYER = 200
 
 
-def crawling_match_data(riotAPI, accountId, max_matchs, save=True, save_after=1000, save_path="", 
+def crawling_match_data(riotAPI, accountId, max_matchs, save=True, batch_size=1000, save_path="", 
                         verbose=False, elo="gold", **filters):
     """
     Pega partidas de varios jogadores diferentes.
@@ -18,7 +18,7 @@ def crawling_match_data(riotAPI, accountId, max_matchs, save=True, save_after=10
     :param accountId: id da conta do jogador que vai ser utilizado para pegar as informações dos outros jogadores
     :param max_matchs: numero maximo de partidas coletadas antes de parar
     :param save: salvar os dados apos um erro.
-    :param save_after: valor que define a quantidade minima de partidas capturadas para o salvamento.
+    :param batch_size: valor que define a quantidade minima de partidas capturadas para o salvamento.
     :param save_path: local onde os arquivos vão ser salvos.
     :param filters: filtros de partida como por exemplo campeões.
     :return: lista de partidas coletadas.
@@ -41,6 +41,8 @@ def crawling_match_data(riotAPI, accountId, max_matchs, save=True, save_after=10
             accountid_list_index = loaded_dict["accountid_list_index"]
             matchid_list = loaded_dict["matchid_list"]
             batch_index = loaded_dict["batch_index"]
+
+            print(loaded_dict.keys())
             
 
         os.remove(cache_path)
@@ -48,6 +50,7 @@ def crawling_match_data(riotAPI, accountId, max_matchs, save=True, save_after=10
     while (len(match_list) < max_matchs):
         try:
             match_info_list = get_matchListByAccountId_v2(riotAPI, accountid_list[accountid_list_index], **filters)
+            accountid_list_index = accountid_list_index + 1
             for match_info in match_info_list:
                 matchId = match_info.gameId
                 if (matchId not in matchid_list):
@@ -59,10 +62,10 @@ def crawling_match_data(riotAPI, accountId, max_matchs, save=True, save_after=10
                         if (accountId not in accountid_list):
                             accountid_list.append(int(accountId))
 
-                    if (save and len(match_list) % save_after == 0):
+                    if (save and len(match_list) % batch_size == 0):
                         save_cache(cache_path, accountid_list,accountid_list_index, 
-                                   matchid_list, batch_index)
-                        save_matchlist_batch(save_path, save_after, match_list, batch_index)
+                                   matchid_list, batch_index+1)
+                        save_matchlist_batch(save_path, batch_size, match_list, batch_index)
                         batch_index = batch_index + 1
 
                 if len(matchid_list) >= max_matchs:
@@ -72,15 +75,6 @@ def crawling_match_data(riotAPI, accountId, max_matchs, save=True, save_after=10
 
         except NotFound as e:
             pass
-        except Exception as e:
-            print(str(e))
-            save_cache(cache_path, accountid_list,accountid_list_index, 
-                       matchid_list, batch_index)
-            continue
-
-
-
-        accountid_list_index = accountid_list_index + 1
 
     return match_list
 
@@ -97,8 +91,8 @@ def save_cache(cache_path ,accountid_list, accountid_list_index, matchid_list, b
         json.dump(dict_to_save, fp)
 
 
-def save_matchlist_batch(save_path, save_after, match_list , batch_index):
-    match_list_dataframes = [match.dataframe for match in match_list[batch_index * save_after:]]
+def save_matchlist_batch(save_path, batch_size, match_list , batch_index):
+    match_list_dataframes = [match.dataframe for match in match_list[-batch_size:]]
     match_list_dataframe = pd.concat(match_list_dataframes, ignore_index=True)
     match_list_dataframe.to_csv("{0}/dataframe_{1}.csv".format(save_path, batch_index), index=False,
                                 index_label=False)
