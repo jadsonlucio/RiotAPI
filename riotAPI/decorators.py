@@ -10,7 +10,7 @@ def api_method(api_method_func):
                 region = riotAPI.region
 
             return api_method_func(riotAPI, id, region=region, **kwargs)
-        except MaxRequestAchieved as e:
+        except (MaxRequestAchieved,Forbidden) as e:
             riotAPI.api_key_index = (riotAPI.api_key_index + 1) % riotAPI.api_keys_size
             return wrapper(riotAPI, id, region, **kwargs)
         except RateLimitExceeded as e:
