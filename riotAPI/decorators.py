@@ -1,7 +1,6 @@
 from time import sleep
-from .exceptions.response import RateLimitExceeded
+from .exceptions.response import RateLimitExceeded,Forbidden
 from .exceptions.max_requests import MaxRequestAchieved
-
 
 def api_method(api_method_func):
     def wrapper(riotAPI, id, region=None, **kwargs):
