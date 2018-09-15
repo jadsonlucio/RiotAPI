@@ -74,7 +74,7 @@ def crawling_match_data(riotAPI, accountId, max_matchs, save=True, batch_size=10
                     print("Número de partidas coletadas:{0}".format(len(matchid_list)))
 
         except NotFound as e:
-            pass
+            accountid_list_index = accountid_list_index + 1
 
     return match_list
 
