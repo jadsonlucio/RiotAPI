@@ -1,4 +1,4 @@
-import os 
+﻿import os 
 import json
 import pandas as pd
 
@@ -43,9 +43,6 @@ def crawling_match_data(riotAPI, accountId, max_matchs, save=True, batch_size=10
             batch_index = loaded_dict["batch_index"]
 
             print(loaded_dict.keys())
-            
-
-        os.remove(cache_path)
 
     while (len(match_list) < max_matchs):
         try:
@@ -73,7 +70,7 @@ def crawling_match_data(riotAPI, accountId, max_matchs, save=True, batch_size=10
                 if(verbose and len(matchid_list)%verbose == 0):
                     print("Número de partidas coletadas:{0}".format(len(matchid_list)))
 
-        except NotFound as e:
+        except Exception as e:
             accountid_list_index = accountid_list_index + 1
 
     return match_list
